@@ -1,7 +1,7 @@
 {
   "name": "maxview-microscope-midi",
   "version": "1.0.0",
-  "description": "MAX-VIEW / JoyHonest WiFi microscope → MIDI (Node for Max / Max for Live)",
+  "description": "MAX-VIEW / JoyHonest WiFi microscope → MIDI — v1.00 definitiva (Node for Max / Max for Live)",
   "private": true,
   "license": "MIT",
   "repository": {

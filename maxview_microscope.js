@@ -6,7 +6,7 @@
 const Max = require("max-api");
 const path = require("path");
 const fs = require("fs");
-const { execFile } = require("child_process");
+const { execFile, spawn } = require("child_process");
 
 const DEBUG_LOG = path.join(__dirname, "node_debug.log");
 function fileLog(msg) {
@@ -84,6 +84,11 @@ const PREVIEW_PATH = path.join(__dirname, "preview.jpg");
 /** Intensidad de flash por banda (treble, mid, bass) para el efecto visual */
 let bandFlash = [0, 0, 0];
 let lastLevels = [0, 0, 0];
+/** MIDI Windows (winmm → GS Wavetable) — suena en altavoces aunque Max DSP falle */
+let winMidiProc = null;
+let winMidiReady = false;
+let winMidiQueue = [];
+const WIN_MIDI_SCRIPT = path.join(__dirname, "win_midi_daemon.ps1");
 
 function scriptDir() {
   try {
@@ -223,15 +228,100 @@ function sendCmd(buf) {
   });
 }
 
+function winMidiSend(line) {
+  if (!winMidiProc || !winMidiProc.stdin || !winMidiProc.stdin.writable) {
+    winMidiQueue.push(line);
+    ensureWinMidi();
+    return;
+  }
+  if (!winMidiReady) {
+    winMidiQueue.push(line);
+    return;
+  }
+  try {
+    winMidiProc.stdin.write(line + "\n");
+  } catch (e) {
+    fileLog("winMidi write fail: " + e.message);
+  }
+}
+
+function ensureWinMidi() {
+  if (winMidiProc) return;
+  if (!fs.existsSync(WIN_MIDI_SCRIPT)) {
+    fileLog("win_midi_daemon.ps1 missing");
+    return;
+  }
+  try {
+    winMidiProc = spawn(
+      "powershell",
+      ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", WIN_MIDI_SCRIPT],
+      {
+        windowsHide: true,
+        stdio: ["pipe", "pipe", "pipe"],
+      }
+    );
+    winMidiReady = false;
+    winMidiProc.stdout.on("data", (buf) => {
+      const s = String(buf);
+      if (s.indexOf("READY") >= 0) {
+        winMidiReady = true;
+        // Piano eléctrico (programa 4) — más audible que el piano default
+        try {
+          winMidiProc.stdin.write("pc 4\n");
+        } catch (_) {}
+        const q = winMidiQueue.splice(0, winMidiQueue.length);
+        for (const line of q) {
+          try {
+            winMidiProc.stdin.write(line + "\n");
+          } catch (_) {}
+        }
+        status("WinMIDI listo (GS Wavetable → altavoces)");
+      }
+    });
+    winMidiProc.stderr.on("data", (buf) => {
+      fileLog("winMidi: " + String(buf).trim());
+    });
+    winMidiProc.on("exit", (code) => {
+      fileLog("winMidi exit " + code);
+      winMidiProc = null;
+      winMidiReady = false;
+    });
+    winMidiProc.on("error", (e) => {
+      fileLog("winMidi spawn error: " + e.message);
+      winMidiProc = null;
+      winMidiReady = false;
+    });
+  } catch (e) {
+    fileLog("ensureWinMidi: " + e.message);
+    winMidiProc = null;
+  }
+}
+
+function stopWinMidi() {
+  winMidiQueue = [];
+  if (!winMidiProc) return;
+  try {
+    winMidiProc.stdin.write("panic\nquit\n");
+  } catch (_) {}
+  try {
+    winMidiProc.kill();
+  } catch (_) {}
+  winMidiProc = null;
+  winMidiReady = false;
+}
+
 function noteOn(pitch, vel) {
   pitch = Math.max(0, Math.min(127, pitch | 0));
   vel = Math.max(1, Math.min(127, vel | 0));
   if (activeNotes.has(pitch)) clearTimeout(activeNotes.get(pitch));
   Max.outlet("midi", pitch, vel);
+  // Audio real por Windows MIDI (independiente del DSP de Max)
+  winMidiSend("on " + pitch + " " + vel);
   // solo note-on en UI (evita "vel 0")
   Max.outlet("noteui", "set", "MIDI " + pitch + "  vel " + vel);
   const t = setTimeout(() => {
     Max.outlet("midi", pitch, 0);
+    winMidiSend("off " + pitch);
     activeNotes.delete(pitch);
   }, holdMs);
   activeNotes.set(pitch, t);
@@ -241,8 +331,10 @@ function allNotesOff() {
   for (const [pitch, t] of activeNotes) {
     clearTimeout(t);
     Max.outlet("midi", pitch, 0);
+    winMidiSend("off " + pitch);
   }
   activeNotes.clear();
+  winMidiSend("panic");
 }
 
 function scaleDegree(t, root) {
@@ -574,28 +666,18 @@ function start() {
     notesFired = 0;
     framesSinceStart = 0;
     status("started cam=" + camIp + " bind=" + local + " (solo movimiento)");
-    // Acorde de prueba MIDI + beep Windows (confirma altavoces)
+    ensureWinMidi();
+    // Acorde de prueba → altavoces vía GS Wavetable
     const beep = () => {
       noteOn(60, 120);
       noteOn(64, 110);
       noteOn(67, 110);
     };
-    setTimeout(beep, 800);
-    setTimeout(beep, 1600);
+    setTimeout(beep, 600);
+    setTimeout(beep, 1400);
     setTimeout(() => {
-      try {
-        execFile(
-          "powershell",
-          [
-            "-NoProfile",
-            "-Command",
-            "[console]::beep(523,160);[console]::beep(659,160);[console]::beep(784,320)",
-          ],
-          { windowsHide: true, timeout: 5000 }
-        );
-      } catch (_) {}
-      status("AUDIO listo (Wavetable+beep) — mueve bajo el objetivo");
-    }, 900);
+      status("AUDIO listo (WinMIDI) — mueve bajo el objetivo");
+    }, 1000);
   } catch (e) {
     status("start failed: " + e.message);
     stop();
@@ -612,6 +694,7 @@ function stop() {
     sendCmd(jh(0xd0, 0x02));
   } catch (_) {}
   allNotesOff();
+  stopWinMidi();
   if (rx) {
     try {
       rx.close();

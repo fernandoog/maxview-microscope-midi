@@ -10,17 +10,17 @@
     },
     "classnamespace": "box",
     "rect": [
-      100.0,
-      60.0,
-      1300.0,
-      820.0
+      80.0,
+      40.0,
+      1280.0,
+      760.0
     ],
     "openinpresentation": 1,
     "toolbarvisible": 0,
     "bgcolor": [
-      0.9,
-      0.9,
-      0.9,
+      0.12,
+      0.12,
+      0.12,
       1.0
     ],
     "boxes": [
@@ -28,7 +28,9 @@
         "box": {
           "id": "pic",
           "maxclass": "fpic",
+          "varname": "pic",
           "pic": "D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
+          "autofit": 1,
           "patching_rect": [
             0.0,
             40.0,
@@ -38,9 +40,9 @@
           "presentation": 1,
           "presentation_rect": [
             0.0,
-            40.0,
+            36.0,
             1280.0,
-            720.0
+            724.0
           ]
         }
       },
@@ -48,26 +50,27 @@
         "box": {
           "id": "bar",
           "maxclass": "comment",
-          "text": "MAX-VIEW  \u00b7  Full / Win / Mon1-3",
+          "varname": "bar",
+          "text": "MAX-VIEW",
           "fontsize": 12.0,
           "fontname": "Arial Bold",
           "textcolor": [
-            0.1,
-            0.1,
-            0.1,
+            0.9,
+            0.9,
+            0.9,
             1.0
           ],
           "patching_rect": [
             10.0,
             10.0,
-            280.0,
+            90.0,
             20.0
           ],
           "presentation": 1,
           "presentation_rect": [
             10.0,
-            10.0,
-            280.0,
+            8.0,
+            90.0,
             20.0
           ]
         }
@@ -75,105 +78,84 @@
       {
         "box": {
           "id": "btn_fs",
-          "maxclass": "textbutton",
+          "maxclass": "message",
           "text": "Full",
-          "texton": "Full",
+          "fontsize": 12.0,
           "patching_rect": [
-            300.0,
+            110.0,
             6.0,
-            50.0,
-            26.0
+            45.0,
+            24.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            300.0,
+            110.0,
             6.0,
-            50.0,
-            26.0
+            45.0,
+            24.0
           ]
         }
       },
       {
         "box": {
           "id": "btn_win",
-          "maxclass": "textbutton",
+          "maxclass": "message",
           "text": "Win",
-          "texton": "Win",
+          "fontsize": 12.0,
           "patching_rect": [
-            356.0,
+            160.0,
             6.0,
-            50.0,
-            26.0
+            40.0,
+            24.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            356.0,
+            160.0,
             6.0,
-            50.0,
-            26.0
+            40.0,
+            24.0
           ]
         }
       },
       {
         "box": {
           "id": "btn_m1",
-          "maxclass": "textbutton",
+          "maxclass": "message",
           "text": "Mon1",
-          "texton": "Mon1",
+          "fontsize": 12.0,
           "patching_rect": [
-            420.0,
+            210.0,
             6.0,
-            54.0,
-            26.0
+            50.0,
+            24.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            420.0,
+            210.0,
             6.0,
-            54.0,
-            26.0
+            50.0,
+            24.0
           ]
         }
       },
       {
         "box": {
           "id": "btn_m2",
-          "maxclass": "textbutton",
+          "maxclass": "message",
           "text": "Mon2",
-          "texton": "Mon2",
+          "fontsize": 12.0,
           "patching_rect": [
-            480.0,
+            265.0,
             6.0,
-            54.0,
-            26.0
+            50.0,
+            24.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            480.0,
+            265.0,
             6.0,
-            54.0,
-            26.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_m3",
-          "maxclass": "textbutton",
-          "text": "Mon3",
-          "texton": "Mon3",
-          "patching_rect": [
-            540.0,
-            6.0,
-            54.0,
-            26.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            540.0,
-            6.0,
-            54.0,
-            26.0
+            50.0,
+            24.0
           ]
         }
       },
@@ -182,22 +164,24 @@
           "id": "fx_lab",
           "maxclass": "comment",
           "text": "FX",
+          "fontsize": 12.0,
+          "fontname": "Arial Bold",
           "textcolor": [
-            0.1,
-            0.1,
-            0.1,
+            0.85,
+            0.85,
+            0.85,
             1.0
           ],
           "patching_rect": [
-            610.0,
+            330.0,
             10.0,
             28.0,
             18.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            610.0,
-            10.0,
+            330.0,
+            8.0,
             28.0,
             18.0
           ]
@@ -208,16 +192,133 @@
           "id": "tgl_fx",
           "maxclass": "toggle",
           "patching_rect": [
-            638.0,
+            360.0,
             8.0,
             22.0,
             22.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            638.0,
+            360.0,
             8.0,
             22.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_fs",
+          "maxclass": "newobj",
+          "text": "sel Full",
+          "patching_rect": [
+            20.0,
+            800.0,
+            60.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_win",
+          "maxclass": "newobj",
+          "text": "sel Win",
+          "patching_rect": [
+            90.0,
+            800.0,
+            55.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_m1",
+          "maxclass": "newobj",
+          "text": "sel Mon1",
+          "patching_rect": [
+            155.0,
+            800.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_m2",
+          "maxclass": "newobj",
+          "text": "sel Mon2",
+          "patching_rect": [
+            235.0,
+            800.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_full",
+          "maxclass": "message",
+          "text": "full",
+          "patching_rect": [
+            20.0,
+            830.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_win",
+          "maxclass": "message",
+          "text": "win",
+          "patching_rect": [
+            70.0,
+            830.0,
+            35.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_m1",
+          "maxclass": "message",
+          "text": "mon1",
+          "patching_rect": [
+            115.0,
+            830.0,
+            45.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_m2",
+          "maxclass": "message",
+          "text": "mon2",
+          "patching_rect": [
+            170.0,
+            830.0,
+            45.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "winjs",
+          "maxclass": "newobj",
+          "text": "js maxview_window.js",
+          "patching_rect": [
+            20.0,
+            860.0,
+            140.0,
             22.0
           ]
         }
@@ -228,139 +329,9 @@
           "maxclass": "newobj",
           "text": "thispatcher",
           "patching_rect": [
-            20.0,
-            780.0,
+            180.0,
+            860.0,
             80.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s1",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            110.0,
-            780.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s2",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            166.0,
-            780.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s3",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            230.0,
-            780.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s4",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            290.0,
-            780.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s5",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            350.0,
-            780.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "m_fs",
-          "maxclass": "message",
-          "text": "fullscreen 1",
-          "patching_rect": [
-            110.0,
-            810.0,
-            90.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "m_win",
-          "maxclass": "message",
-          "text": "fullscreen 0, size 1280 760, offset 80 40",
-          "patching_rect": [
-            200.0,
-            810.0,
-            280.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "m_m1",
-          "maxclass": "message",
-          "text": "fullscreen 0, size 1280 760, offset 40 40",
-          "patching_rect": [
-            200.0,
-            840.0,
-            280.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "m_m2",
-          "maxclass": "message",
-          "text": "fullscreen 0, size 1280 760, offset 1920 40",
-          "patching_rect": [
-            200.0,
-            870.0,
-            280.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "m_m3",
-          "maxclass": "message",
-          "text": "fullscreen 0, size 1280 760, offset 3840 40",
-          "patching_rect": [
-            200.0,
-            900.0,
-            280.0,
             22.0
           ]
         }
@@ -372,7 +343,7 @@
           "text": "r maxview_frame",
           "patching_rect": [
             20.0,
-            940.0,
+            900.0,
             110.0,
             22.0
           ]
@@ -385,7 +356,7 @@
           "text": "sprintf read %s",
           "patching_rect": [
             140.0,
-            940.0,
+            900.0,
             110.0,
             22.0
           ]
@@ -398,7 +369,7 @@
           "text": "metro 80",
           "patching_rect": [
             20.0,
-            970.0,
+            930.0,
             70.0,
             22.0
           ]
@@ -411,7 +382,7 @@
           "text": "loadmess 1",
           "patching_rect": [
             100.0,
-            970.0,
+            930.0,
             80.0,
             22.0
           ]
@@ -424,8 +395,8 @@
           "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
           "patching_rect": [
             200.0,
-            970.0,
-            300.0,
+            930.0,
+            320.0,
             22.0
           ]
         }
@@ -436,8 +407,8 @@
           "maxclass": "message",
           "text": "fxvis $1",
           "patching_rect": [
-            500.0,
-            780.0,
+            400.0,
+            800.0,
             70.0,
             22.0
           ]
@@ -449,9 +420,9 @@
           "maxclass": "newobj",
           "text": "s maxview_fxvis",
           "patching_rect": [
-            580.0,
-            780.0,
-            110.0,
+            480.0,
+            800.0,
+            100.0,
             22.0
           ]
         }
@@ -462,9 +433,9 @@
           "maxclass": "newobj",
           "text": "loadbang",
           "patching_rect": [
-            500.0,
-            810.0,
-            70.0,
+            400.0,
+            830.0,
+            60.0,
             22.0
           ]
         }
@@ -475,8 +446,8 @@
           "maxclass": "message",
           "text": "1",
           "patching_rect": [
-            500.0,
-            840.0,
+            400.0,
+            860.0,
             30.0,
             22.0
           ]
@@ -486,11 +457,11 @@
         "box": {
           "id": "boot",
           "maxclass": "message",
-          "text": "size 1280 760, offset 100 60",
+          "text": "win",
           "patching_rect": [
-            500.0,
-            870.0,
-            200.0,
+            440.0,
+            860.0,
+            40.0,
             22.0
           ]
         }
@@ -499,314 +470,146 @@
     "lines": [
       {
         "patchline": {
-          "source": [
-            "btn_fs",
-            0
-          ],
-          "destination": [
-            "s1",
-            0
-          ]
+          "source": ["btn_fs", 0],
+          "destination": ["sel_fs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "btn_win",
-            0
-          ],
-          "destination": [
-            "s2",
-            0
-          ]
+          "source": ["btn_win", 0],
+          "destination": ["sel_win", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "btn_m1",
-            0
-          ],
-          "destination": [
-            "s3",
-            0
-          ]
+          "source": ["btn_m1", 0],
+          "destination": ["sel_m1", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "btn_m2",
-            0
-          ],
-          "destination": [
-            "s4",
-            0
-          ]
+          "source": ["btn_m2", 0],
+          "destination": ["sel_m2", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "btn_m3",
-            0
-          ],
-          "destination": [
-            "s5",
-            0
-          ]
+          "source": ["sel_fs", 0],
+          "destination": ["msg_full", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "s1",
-            0
-          ],
-          "destination": [
-            "m_fs",
-            0
-          ]
+          "source": ["sel_win", 0],
+          "destination": ["msg_win", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "s2",
-            0
-          ],
-          "destination": [
-            "m_win",
-            0
-          ]
+          "source": ["sel_m1", 0],
+          "destination": ["msg_m1", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "s3",
-            0
-          ],
-          "destination": [
-            "m_m1",
-            0
-          ]
+          "source": ["sel_m2", 0],
+          "destination": ["msg_m2", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "s4",
-            0
-          ],
-          "destination": [
-            "m_m2",
-            0
-          ]
+          "source": ["msg_full", 0],
+          "destination": ["winjs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "s5",
-            0
-          ],
-          "destination": [
-            "m_m3",
-            0
-          ]
+          "source": ["msg_win", 0],
+          "destination": ["winjs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "m_fs",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["msg_m1", 0],
+          "destination": ["winjs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "m_win",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["msg_m2", 0],
+          "destination": ["winjs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "m_m1",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["winjs", 0],
+          "destination": ["tp", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "m_m2",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["boot", 0],
+          "destination": ["winjs", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "m_m3",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["vlb", 0],
+          "destination": ["vone", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "r_frame",
-            0
-          ],
-          "destination": [
-            "spr",
-            0
-          ]
+          "source": ["vlb", 0],
+          "destination": ["boot", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "spr",
-            0
-          ],
-          "destination": [
-            "pic",
-            0
-          ]
+          "source": ["vone", 0],
+          "destination": ["tgl_fx", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "lm",
-            0
-          ],
-          "destination": [
-            "metro",
-            0
-          ]
+          "source": ["tgl_fx", 0],
+          "destination": ["mfx", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "metro",
-            0
-          ],
-          "destination": [
-            "mread",
-            0
-          ]
+          "source": ["mfx", 0],
+          "destination": ["sfx", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "mread",
-            0
-          ],
-          "destination": [
-            "pic",
-            0
-          ]
+          "source": ["lm", 0],
+          "destination": ["metro", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "tgl_fx",
-            0
-          ],
-          "destination": [
-            "mfx",
-            0
-          ]
+          "source": ["metro", 0],
+          "destination": ["mread", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "mfx",
-            0
-          ],
-          "destination": [
-            "sfx",
-            0
-          ]
+          "source": ["mread", 0],
+          "destination": ["pic", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "vlb",
-            0
-          ],
-          "destination": [
-            "vone",
-            0
-          ]
+          "source": ["r_frame", 0],
+          "destination": ["spr", 0]
         }
       },
       {
         "patchline": {
-          "source": [
-            "vone",
-            0
-          ],
-          "destination": [
-            "tgl_fx",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "vlb",
-            0
-          ],
-          "destination": [
-            "boot",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "boot",
-            0
-          ],
-          "destination": [
-            "tp",
-            0
-          ]
+          "source": ["spr", 0],
+          "destination": ["pic", 0]
         }
       }
     ]
