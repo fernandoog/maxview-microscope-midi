@@ -573,6 +573,45 @@
             22.0
           ]
         }
+      },
+      {
+        "box": {
+          "id": "s_frame",
+          "maxclass": "newobj",
+          "text": "s maxview_frame",
+          "patching_rect": [
+            450.0,
+            450.0,
+            110.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "r_fx",
+          "maxclass": "newobj",
+          "text": "r maxview_fxvis",
+          "patching_rect": [
+            570.0,
+            450.0,
+            110.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_fxn",
+          "maxclass": "message",
+          "text": "fxvis $1",
+          "patching_rect": [
+            690.0,
+            450.0,
+            70.0,
+            22.0
+          ]
+        }
       }
     ],
     "lines": [
@@ -1064,6 +1103,42 @@
           ],
           "destination": [
             "ezdac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            4
+          ],
+          "destination": [
+            "s_frame",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "r_fx",
+            0
+          ],
+          "destination": [
+            "msg_fxn",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_fxn",
+            0
+          ],
+          "destination": [
+            "node",
             0
           ]
         }
