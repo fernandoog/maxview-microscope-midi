@@ -1,0 +1,13 @@
+node_modules/
+vendor/
+code/vendor/
+*.log
+node_debug.log
+monitor_stdout.txt
+monitor_stderr.txt
+probe_out_monitor.log
+.DS_Store
+Thumbs.db
+*.amxd
+.crash/
+*.tmp

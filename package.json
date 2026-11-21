@@ -1,0 +1,20 @@
+{
+  "name": "maxview-microscope-midi",
+  "version": "1.0.0",
+  "description": "MAX-VIEW / JoyHonest WiFi microscope → MIDI (Node for Max / Max for Live)",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fernandoog/maxview-microscope-midi.git"
+  },
+  "scripts": {
+    "postinstall": "node -e \"try{require('fs').writeFileSync('node_modules/.maxview_installed',new Date().toISOString())}catch(e){}\""
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
