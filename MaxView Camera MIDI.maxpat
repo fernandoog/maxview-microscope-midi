@@ -1210,7 +1210,7 @@
         "box": {
           "id": "open_prev",
           "maxclass": "message",
-          "text": "openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "text": "; max openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
           "patching_rect": [
             280.0,
             150.0,
@@ -1266,11 +1266,254 @@
         "box": {
           "id": "auto_prev_msg",
           "maxclass": "message",
-          "text": "openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "text": "; max openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
           "patching_rect": [
             900.0,
             100.0,
             260.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_metro",
+          "maxclass": "newobj",
+          "text": "metro 70",
+          "patching_rect": [
+            20.0,
+            620.0,
+            70.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_tgl",
+          "maxclass": "toggle",
+          "patching_rect": [
+            100.0,
+            620.0,
+            24.0,
+            24.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            380.0,
+            28.0,
+            28.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_vid_label",
+          "maxclass": "comment",
+          "text": "Video window",
+          "patching_rect": [
+            130.0,
+            622.0,
+            100.0,
+            20.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            54.0,
+            384.0,
+            100.0,
+            20.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_read",
+          "maxclass": "message",
+          "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview.jpg",
+          "patching_rect": [
+            20.0,
+            660.0,
+            320.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_movie",
+          "maxclass": "newobj",
+          "text": "jit.movie @adapt 1 @unique 1 @autostart 0",
+          "patching_rect": [
+            20.0,
+            700.0,
+            240.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_win",
+          "maxclass": "newobj",
+          "text": "jit.window maxview @size 1280 720 @floating 1 @fsmenubar 1",
+          "patching_rect": [
+            20.0,
+            740.0,
+            400.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fs_tgl",
+          "maxclass": "toggle",
+          "patching_rect": [
+            240.0,
+            620.0,
+            24.0,
+            24.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            170.0,
+            380.0,
+            28.0,
+            28.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fs_label",
+          "maxclass": "comment",
+          "text": "Fullscreen",
+          "patching_rect": [
+            270.0,
+            622.0,
+            80.0,
+            20.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            204.0,
+            384.0,
+            80.0,
+            20.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fs_msg",
+          "maxclass": "message",
+          "text": "fullscreen $1",
+          "patching_rect": [
+            240.0,
+            660.0,
+            100.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fx_tgl",
+          "maxclass": "toggle",
+          "patching_rect": [
+            380.0,
+            620.0,
+            24.0,
+            24.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            300.0,
+            380.0,
+            28.0,
+            28.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fx_label",
+          "maxclass": "comment",
+          "text": "FX MIDI",
+          "patching_rect": [
+            410.0,
+            622.0,
+            60.0,
+            20.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            334.0,
+            384.0,
+            60.0,
+            20.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "embed_fx_msg",
+          "maxclass": "message",
+          "text": "fxvis $1",
+          "patching_rect": [
+            380.0,
+            660.0,
+            70.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_lb",
+          "maxclass": "newobj",
+          "text": "loadbang",
+          "patching_rect": [
+            500.0,
+            620.0,
+            70.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_one",
+          "maxclass": "message",
+          "text": "1",
+          "patching_rect": [
+            500.0,
+            650.0,
+            30.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "embed_sprintf",
+          "maxclass": "newobj",
+          "text": "sprintf read %s",
+          "patching_rect": [
+            280.0,
+            700.0,
+            110.0,
             22.0
           ],
           "presentation": 0
@@ -1958,6 +2201,162 @@
           ],
           "destination": [
             "max_obj",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_tgl",
+            0
+          ],
+          "destination": [
+            "embed_metro",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_metro",
+            0
+          ],
+          "destination": [
+            "embed_read",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_read",
+            0
+          ],
+          "destination": [
+            "embed_movie",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_movie",
+            0
+          ],
+          "destination": [
+            "embed_win",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_fs_tgl",
+            0
+          ],
+          "destination": [
+            "embed_fs_msg",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_fs_msg",
+            0
+          ],
+          "destination": [
+            "embed_win",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_fx_tgl",
+            0
+          ],
+          "destination": [
+            "embed_fx_msg",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_fx_msg",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_lb",
+            0
+          ],
+          "destination": [
+            "embed_one",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_one",
+            0
+          ],
+          "destination": [
+            "embed_tgl",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_one",
+            0
+          ],
+          "destination": [
+            "embed_fx_tgl",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            4
+          ],
+          "destination": [
+            "embed_sprintf",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "embed_sprintf",
+            0
+          ],
+          "destination": [
+            "embed_movie",
             0
           ]
         }
