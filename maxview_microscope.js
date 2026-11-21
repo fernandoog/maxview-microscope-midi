@@ -105,7 +105,8 @@ function packageRoot() {
 function status(msg) {
   fileLog(msg);
   Max.post("[MaxView] " + msg);
-  Max.outlet("status", msg);
+  // Un solo símbolo para que route/textedit no partan el mensaje
+  Max.outlet("status", String(msg).replace(/\s+/g, " "));
 }
 
 function tryLoadSharp() {
@@ -506,7 +507,7 @@ function start() {
     return;
   }
 
-  const local = bindIp || detectBindIp();
+  const local = bindIp || detectBindIp() || "192.168.29.2";
   try {
     tx = dgram.createSocket("udp4");
     tx.bind({ address: local === "0.0.0.0" ? undefined : local, port: 0 });
@@ -514,9 +515,15 @@ function start() {
     rx = dgram.createSocket({ type: "udp4", reuseAddr: true });
     rx.on("message", feedUdp);
     rx.on("error", (e) => status("rx error: " + e.message));
+    // Preferir bind a la IP del WiFi del microscopio (no 0.0.0.0 si hay otra ruta)
+    const listenAddr =
+      local && local !== "0.0.0.0" ? local : detectBindIp() || "0.0.0.0";
     rx.bind(
-      { address: local === "0.0.0.0" ? undefined : local, port: DATA_PORT },
-      () => status("UDP listen " + local + ":" + DATA_PORT)
+      {
+        address: listenAddr === "0.0.0.0" ? undefined : listenAddr,
+        port: DATA_PORT,
+      },
+      () => status("UDP listen " + listenAddr + ":" + DATA_PORT)
     );
 
     sendCmd(jh(0x10, 0x00));
