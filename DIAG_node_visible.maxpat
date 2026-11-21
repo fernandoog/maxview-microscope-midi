@@ -226,7 +226,7 @@
         "box": {
           "id": "msg_open",
           "maxclass": "message",
-          "text": "; max openfile D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\MaxView_Preview.maxpat",
+          "text": "; max openfile D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
           "patching_rect": [
             200.0,
             180.0,
@@ -1173,18 +1173,6 @@
       {
         "patchline": {
           "source": [
-            "lb",
-            0
-          ],
-          "destination": [
-            "del_open",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
             "del",
             0
           ],
@@ -1250,18 +1238,6 @@
           ],
           "destination": [
             "msg_cam",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "del_open",
-            0
-          ],
-          "destination": [
-            "msg_open",
             0
           ]
         }
