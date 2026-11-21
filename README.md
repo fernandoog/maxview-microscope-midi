@@ -72,6 +72,17 @@ Al abrir el patch se lanza **MaxView_Preview.maxpat** (otra ventana):
 - **Pantalla completa** (toggle; ESC para salir)
 - El frame se escribe en `preview.jpg` (~15 fps)
 
+
+
+## Ventana de vídeo (aparte)
+
+`MaxView_Preview.maxpat` es una **ventana independiente** del panel de controles:
+
+- **Fullscreen** / **Ventana** / **Maximizar** / **Minimizar**
+- **Monitor 1 / 2 / 3** mueve la ventana (orígenes 0 / 1920 / 3840; ajusta Offset X Y si tu layout es otro)
+- **FX** — efecto discreto de 3 bandas (borde + líneas)
+- Se abre sola al cargar el patch de controles, o con el botón **Abrir Video**
+
 ## Licencia
 
 MIT

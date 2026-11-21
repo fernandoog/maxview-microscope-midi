@@ -12,8 +12,8 @@
     "rect": [
       40,
       40,
-      720,
-      620
+      700,
+      520
     ],
     "bglocked": 0,
     "openinpresentation": 1,
@@ -24,7 +24,7 @@
           "maxclass": "comment",
           "fontsize": 16.0,
           "fontname": "Arial Bold",
-          "text": "MAX-VIEW  |  3 bandas  |  clic ezdac si no hay sonido",
+          "text": "MAX-VIEW Controles  |  Video = ventana aparte",
           "patching_rect": [
             20.0,
             8.0,
@@ -37,26 +37,6 @@
             8.0,
             600.0,
             24.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "pic",
-          "maxclass": "fpic",
-          "pic": "D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
-          "patching_rect": [
-            20.0,
-            200.0,
-            640.0,
-            360.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            40.0,
-            640.0,
-            360.0
           ]
         }
       },
@@ -164,9 +144,9 @@
           "presentation": 1,
           "presentation_rect": [
             20.0,
-            470.0,
+            140.0,
             640.0,
-            50.0
+            80.0
           ]
         }
       },
@@ -191,9 +171,9 @@
           "presentation": 1,
           "presentation_rect": [
             20.0,
-            530.0,
+            230.0,
             640.0,
-            30.0
+            36.0
           ]
         }
       },
@@ -284,58 +264,6 @@
             450.0,
             90.0,
             260.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "spr",
-          "maxclass": "newobj",
-          "text": "sprintf read %s",
-          "patching_rect": [
-            450.0,
-            340.0,
-            110.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "metro",
-          "maxclass": "newobj",
-          "text": "metro 100",
-          "patching_rect": [
-            450.0,
-            380.0,
-            80.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "loadmess_metro",
-          "maxclass": "newobj",
-          "text": "loadmess 1",
-          "patching_rect": [
-            540.0,
-            380.0,
-            80.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_read_a",
-          "maxclass": "message",
-          "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
-          "patching_rect": [
-            450.0,
-            410.0,
-            280.0,
             22.0
           ]
         }
@@ -638,6 +566,79 @@
             22.0
           ]
         }
+      },
+      {
+        "box": {
+          "id": "btn_video",
+          "maxclass": "textbutton",
+          "text": "Abrir Video",
+          "texton": "Abrir Video",
+          "patching_rect": [
+            280.0,
+            40.0,
+            100.0,
+            32.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            280.0,
+            420.0,
+            110.0,
+            32.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_video",
+          "maxclass": "newobj",
+          "text": "sel 1",
+          "patching_rect": [
+            280.0,
+            80.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_open_video",
+          "maxclass": "message",
+          "text": "; max openfile D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
+          "patching_rect": [
+            280.0,
+            110.0,
+            420.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "del_open_video",
+          "maxclass": "newobj",
+          "text": "delay 3000",
+          "patching_rect": [
+            700.0,
+            280.0,
+            80.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_open_auto",
+          "maxclass": "message",
+          "text": "; max openfile D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
+          "patching_rect": [
+            700.0,
+            310.0,
+            420.0,
+            22.0
+          ]
+        }
       }
     ],
     "lines": [
@@ -781,66 +782,6 @@
           ],
           "destination": [
             "node",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "route",
-            4
-          ],
-          "destination": [
-            "spr",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "spr",
-            0
-          ],
-          "destination": [
-            "pic",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "loadmess_metro",
-            0
-          ],
-          "destination": [
-            "metro",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "metro",
-            0
-          ],
-          "destination": [
-            "msg_read_a",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_read_a",
-            0
-          ],
-          "destination": [
-            "pic",
             0
           ]
         }
@@ -1213,6 +1154,54 @@
           ],
           "destination": [
             "note_ui",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "btn_video",
+            0
+          ],
+          "destination": [
+            "sel_video",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "sel_video",
+            0
+          ],
+          "destination": [
+            "msg_open_video",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lb",
+            0
+          ],
+          "destination": [
+            "del_open_video",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "del_open_video",
+            0
+          ],
+          "destination": [
+            "msg_open_auto",
             0
           ]
         }
