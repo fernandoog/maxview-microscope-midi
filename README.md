@@ -65,7 +65,7 @@ Mensajes útiles al `node.script`: `noise <1–64>` (umbral anti-ruido JPEG, def
 
 ## Preview de vídeo
 
-Al abrir el patch se lanza **MaxView Preview.maxpat** (otra ventana):
+Al abrir el patch se lanza **MaxView_Preview.maxpat** (otra ventana):
 
 - Vídeo del microscopio en `jit.window` flotante
 - **Efecto MIDI**: bandas de color (cian/verde/naranja) al disparar notas — se puede apagar con el toggle

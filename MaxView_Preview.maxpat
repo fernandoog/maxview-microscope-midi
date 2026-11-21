@@ -22,7 +22,7 @@
         "box": {
           "id": "pic",
           "maxclass": "fpic",
-          "pic": "D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview.jpg",
+          "pic": "D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\preview.jpg",
           "patching_rect": [
             20.0,
             120.0,
@@ -167,7 +167,7 @@
         "box": {
           "id": "msg_read",
           "maxclass": "message",
-          "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview.jpg",
+          "text": "read D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\preview.jpg",
           "patching_rect": [
             140.0,
             90.0,

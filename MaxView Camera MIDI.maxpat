@@ -1210,7 +1210,7 @@
         "box": {
           "id": "open_prev",
           "maxclass": "message",
-          "text": "; max openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "text": "; max openfile D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\MaxView_Preview.maxpat",
           "patching_rect": [
             280.0,
             150.0,
@@ -1266,7 +1266,7 @@
         "box": {
           "id": "auto_prev_msg",
           "maxclass": "message",
-          "text": "; max openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "text": "; max openfile D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\MaxView_Preview.maxpat",
           "patching_rect": [
             900.0,
             100.0,
@@ -1333,7 +1333,7 @@
         "box": {
           "id": "embed_read",
           "maxclass": "message",
-          "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview.jpg",
+          "text": "read D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\preview.jpg",
           "patching_rect": [
             20.0,
             660.0,
