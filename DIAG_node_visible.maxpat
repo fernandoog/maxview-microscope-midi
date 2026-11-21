@@ -45,7 +45,7 @@
           "id": "hint",
           "maxclass": "comment",
           "fontsize": 12.0,
-          "text": "Auto-start. Clic en el altavoz si no hay sonido. Mueve algo bajo el objetivo.",
+          "text": "Auto-start + Preview. FX MIDI en ventana video. ezdac~ = audio.",
           "patching_rect": [
             20.0,
             36.0,
@@ -250,7 +250,7 @@
         "box": {
           "id": "route",
           "maxclass": "newobj",
-          "text": "route midi status levels ready",
+          "text": "route midi status levels ready frame fx",
           "patching_rect": [
             20.0,
             220.0,
@@ -585,6 +585,139 @@
             700.0,
             20.0
           ]
+        }
+      },
+      {
+        "box": {
+          "id": "s_frame",
+          "maxclass": "newobj",
+          "text": "s maxview_frame",
+          "patching_rect": [
+            520.0,
+            220.0,
+            110.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "r_fxvis",
+          "maxclass": "newobj",
+          "text": "r maxview_fxvis",
+          "patching_rect": [
+            520.0,
+            250.0,
+            110.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "msg_fxvis",
+          "maxclass": "message",
+          "text": "fxvis $1",
+          "patching_rect": [
+            640.0,
+            250.0,
+            70.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "btn_preview",
+          "maxclass": "textbutton",
+          "text": "Preview",
+          "texton": "Preview",
+          "patching_rect": [
+            330.0,
+            110.0,
+            90.0,
+            32.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            330.0,
+            110.0,
+            90.0,
+            32.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_prev",
+          "maxclass": "newobj",
+          "text": "sel 1",
+          "patching_rect": [
+            330.0,
+            150.0,
+            40.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "open_prev",
+          "maxclass": "message",
+          "text": "openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "patching_rect": [
+            330.0,
+            180.0,
+            280.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "max_obj",
+          "maxclass": "newobj",
+          "text": "max",
+          "patching_rect": [
+            330.0,
+            210.0,
+            40.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "auto_open_del",
+          "maxclass": "newobj",
+          "text": "delay 3500",
+          "patching_rect": [
+            640.0,
+            100.0,
+            80.0,
+            22.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "auto_open_msg",
+          "maxclass": "message",
+          "text": "openfile \"D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView Preview.maxpat\"",
+          "patching_rect": [
+            640.0,
+            130.0,
+            280.0,
+            22.0
+          ],
+          "presentation": 0
         }
       }
     ],
@@ -958,6 +1091,114 @@
           "destination": [
             "ezdac",
             1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            4
+          ],
+          "destination": [
+            "s_frame",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "r_fxvis",
+            0
+          ],
+          "destination": [
+            "msg_fxvis",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_fxvis",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "btn_preview",
+            0
+          ],
+          "destination": [
+            "sel_prev",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "sel_prev",
+            0
+          ],
+          "destination": [
+            "open_prev",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "open_prev",
+            0
+          ],
+          "destination": [
+            "max_obj",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lb",
+            0
+          ],
+          "destination": [
+            "auto_open_del",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "auto_open_del",
+            0
+          ],
+          "destination": [
+            "auto_open_msg",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "auto_open_msg",
+            0
+          ],
+          "destination": [
+            "max_obj",
+            0
           ]
         }
       }

@@ -69,6 +69,15 @@ let lastFpsT = Date.now();
 let fps = 0;
 let scriptReady = false;
 let installing = false;
+let previewEnabled = true;
+let visualFx = true;
+let lastPreviewT = 0;
+const PREVIEW_MIN_MS = 66; // ~15 fps a disco
+const PREVIEW_PATH = path.join(__dirname, "preview.jpg");
+const PREVIEW_TMP = path.join(__dirname, "preview.tmp.jpg");
+/** Intensidad de flash por banda (treble, mid, bass) para el efecto visual */
+let bandFlash = [0, 0, 0];
+let lastLevels = [0, 0, 0];
 
 function scriptDir() {
   try {
@@ -288,6 +297,85 @@ function bandDiffMaps(gray, width, height, prev) {
 
 let decodeBusy = false;
 
+async function writePreview(jpg) {
+  if (!previewEnabled || !jpg || !jpg.length) return;
+  const now = Date.now();
+  if (now - lastPreviewT < PREVIEW_MIN_MS) return;
+  lastPreviewT = now;
+  try {
+    let out = jpg;
+    if (visualFx && sharp) {
+      const flashes = bandFlash;
+      const levels = lastLevels;
+      const strength = [
+        Math.min(1, flashes[0] * 0.9 + levels[0] * 0.35),
+        Math.min(1, flashes[1] * 0.9 + levels[1] * 0.35),
+        Math.min(1, flashes[2] * 0.9 + levels[2] * 0.35),
+      ];
+      if (strength[0] + strength[1] + strength[2] > 0.02) {
+        const meta = await sharp(jpg).metadata();
+        const w = meta.width || 640;
+        const h = meta.height || 360;
+        const h1 = (h / 3) | 0;
+        const h2 = ((2 * h) / 3) | 0;
+        // RGBA overlays: treble cyan, mid lime, bass orange
+        const bands = [
+          { top: 0, height: h1, rgb: [0, 200, 255], a: strength[0] },
+          { top: h1, height: h2 - h1, rgb: [80, 255, 100], a: strength[1] },
+          { top: h2, height: h - h2, rgb: [255, 70, 40], a: strength[2] },
+        ];
+        const overlays = [];
+        for (const b of bands) {
+          if (b.a < 0.03 || b.height < 1) continue;
+          const alpha = Math.min(180, Math.floor(b.a * 160));
+          const buf = await sharp({
+            create: {
+              width: w,
+              height: b.height,
+              channels: 4,
+              background: {
+                r: b.rgb[0],
+                g: b.rgb[1],
+                b: b.rgb[2],
+                alpha,
+              },
+            },
+          })
+            .png()
+            .toBuffer();
+          overlays.push({ input: buf, top: b.top, left: 0 });
+        }
+        if (overlays.length) {
+          out = await sharp(jpg)
+            .composite(overlays)
+            .jpeg({ quality: 70, chromaSubsampling: "4:2:0" })
+            .toBuffer();
+        }
+      }
+    }
+    fs.writeFileSync(PREVIEW_TMP, out);
+    try {
+      fs.renameSync(PREVIEW_TMP, PREVIEW_PATH);
+    } catch (_) {
+      fs.copyFileSync(PREVIEW_TMP, PREVIEW_PATH);
+    }
+    Max.outlet("frame", PREVIEW_PATH.replace(/\\/g, "/"));
+  } catch (e) {
+    try {
+      fs.writeFileSync(PREVIEW_PATH, jpg);
+      Max.outlet("frame", PREVIEW_PATH.replace(/\\/g, "/"));
+    } catch (_) {}
+    fileLog("preview write fail: " + e.message);
+  }
+}
+
+function decayFlash() {
+  for (let i = 0; i < 3; i++) {
+    bandFlash[i] *= 0.85;
+    if (bandFlash[i] < 0.02) bandFlash[i] = 0;
+  }
+}
+
 async function processJpeg(jpg) {
   if (!sharp || decodeBusy) return;
   decodeBusy = true;
@@ -308,7 +396,9 @@ async function processJpeg(jpg) {
       prevGray = Buffer.from(gray);
       prevW = width;
       prevH = height;
+      lastLevels = [0, 0, 0];
       Max.outlet("levels", 0, 0, 0);
+      await writePreview(jpg);
       return;
     }
 
@@ -318,9 +408,11 @@ async function processJpeg(jpg) {
     // Ganancia moderada: solo motion limpia (sin fallback de brillo)
     const gain = 4 + sensitivity * 12;
     const levels = diffs.map((d) => Math.min(1, d * gain));
+    lastLevels = levels;
     Max.outlet("levels", levels[2], levels[1], levels[0]);
 
     const now = Date.now();
+    decayFlash();
     // Espera 2 frames de referencia tras start para no disparar al estabilizar
     if (framesSinceStart > 2) {
       for (let i = 0; i < 3; i++) {
@@ -341,8 +433,21 @@ async function processJpeg(jpg) {
         );
         noteOn(pitch, vel);
         notesFired++;
+        bandFlash[i] = Math.min(1, bandFlash[i] + Math.max(change, 0.35));
       }
     }
+
+    Max.outlet(
+      "fx",
+      bandFlash[0],
+      bandFlash[1],
+      bandFlash[2],
+      levels[0],
+      levels[1],
+      levels[2]
+    );
+
+    await writePreview(jpg);
 
     frameCount++;
     if (now - lastFpsT >= 1000) {
@@ -505,6 +610,14 @@ Max.addHandler("start", () => {
 });
 Max.addHandler("stop", () => stop());
 Max.addHandler("freeze", () => freeze());
+Max.addHandler("preview", (v) => {
+  previewEnabled = Number(v) !== 0 && String(v) !== "off";
+  status("preview=" + (previewEnabled ? "on" : "off"));
+});
+Max.addHandler("fxvis", (v) => {
+  visualFx = Number(v) !== 0 && String(v) !== "off";
+  status("fxvis=" + (visualFx ? "on" : "off"));
+});
 Max.addHandler("install", () => {
   status("reinstalando deps…");
   const root = packageRoot();

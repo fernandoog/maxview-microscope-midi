@@ -11,3 +11,5 @@ Thumbs.db
 *.amxd
 .crash/
 *.tmp
+preview.jpg
+preview.tmp.jpg

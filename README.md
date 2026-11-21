@@ -61,6 +61,17 @@ Mensajes útiles al `node.script`: `noise <1–64>` (umbral anti-ruido JPEG, def
 - USB UVC no forma parte de este device (el stream útil es el WiFi).
 - La 1ª carga puede ejecutar `npm install` automáticamente si falta `sharp`.
 
+
+
+## Preview de vídeo
+
+Al abrir el patch se lanza **MaxView Preview.maxpat** (otra ventana):
+
+- Vídeo del microscopio en `jit.window` flotante
+- **Efecto MIDI**: bandas de color (cian/verde/naranja) al disparar notas — se puede apagar con el toggle
+- **Pantalla completa** (toggle; ESC para salir)
+- El frame se escribe en `preview.jpg` (~15 fps)
+
 ## Licencia
 
 MIT
