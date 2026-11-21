@@ -11,6 +11,10 @@ Convierte el vídeo WiFi del microscopio **MAX-VIEW / JoyHonest** en MIDI de 3 b
 
 ## Arranque rápido (Max)
 
+Abre **`MaxView.maxpat`** (panel de control minimalista).
+El botón **Video** abre la ventana del microscopio (Fullscreen / Mon1–3).
+
+
 1. Clona el repo y, opcionalmente, `npm install` en esta carpeta.
 2. Abre `DIAG_node_visible.maxpat` (presentación + audio de prueba) o `MaxView Camera MIDI.maxpat`.
 3. Conecta el WiFi del microscopio.
