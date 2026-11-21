@@ -574,13 +574,17 @@ function start() {
     notesFired = 0;
     framesSinceStart = 0;
     status("started cam=" + camIp + " bind=" + local + " (solo movimiento)");
-    // Acorde de prueba para verificar audio al arrancar
+    // Acorde de prueba (varias veces) para verificar audio al arrancar
+    const beep = () => {
+      noteOn(60, 120);
+      noteOn(64, 110);
+      noteOn(67, 110);
+    };
+    setTimeout(beep, 600);
+    setTimeout(beep, 1400);
     setTimeout(() => {
-      noteOn(60, 100);
-      noteOn(64, 90);
-      noteOn(67, 90);
-      status("TEST audio Cmaj — mueve bajo el objetivo para mas notas");
-    }, 500);
+      status("AUDIO+VIDEO listos — mueve bajo el objetivo");
+    }, 1500);
   } catch (e) {
     status("start failed: " + e.message);
     stop();

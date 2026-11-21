@@ -12,15 +12,15 @@
     "rect": [
       80.0,
       80.0,
-      380.0,
-      390.0
+      390.0,
+      360.0
     ],
     "openinpresentation": 1,
     "toolbarvisible": 0,
     "bgcolor": [
+      0.16,
+      0.16,
       0.18,
-      0.18,
-      0.2,
       1.0
     ],
     "boxes": [
@@ -56,7 +56,7 @@
         "box": {
           "id": "sub",
           "maxclass": "comment",
-          "text": "microscopio \u2192 MIDI",
+          "text": "arranca solo \u00b7 audio + video + MIDI",
           "fontsize": 11.0,
           "textcolor": [
             0.7,
@@ -67,59 +67,15 @@
           "patching_rect": [
             24.0,
             44.0,
-            200.0,
+            280.0,
             18.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
             46.0,
-            200.0,
+            280.0,
             18.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_start",
-          "maxclass": "textbutton",
-          "text": "Start",
-          "texton": "Start",
-          "fontsize": 14.0,
-          "patching_rect": [
-            24.0,
-            80.0,
-            100.0,
-            40.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            24.0,
-            80.0,
-            100.0,
-            40.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_stop",
-          "maxclass": "textbutton",
-          "text": "Stop",
-          "texton": "Stop",
-          "fontsize": 14.0,
-          "patching_rect": [
-            136.0,
-            80.0,
-            100.0,
-            40.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            136.0,
-            80.0,
-            100.0,
-            40.0
           ]
         }
       },
@@ -128,60 +84,45 @@
           "id": "ezdac",
           "maxclass": "ezdac~",
           "patching_rect": [
-            256.0,
+            24.0,
             80.0,
-            44.0,
-            44.0
+            48.0,
+            48.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            256.0,
+            24.0,
             78.0,
-            44.0,
-            44.0
+            48.0,
+            48.0
           ]
         }
       },
       {
         "box": {
-          "id": "btn_video",
-          "maxclass": "textbutton",
-          "text": "Video",
-          "texton": "Video",
+          "id": "dac_lab",
+          "maxclass": "comment",
+          "text": "AUDIO",
           "fontsize": 14.0,
+          "fontname": "Arial Bold",
+          "textcolor": [
+            0.95,
+            0.95,
+            0.95,
+            1.0
+          ],
           "patching_rect": [
-            24.0,
-            140.0,
-            216.0,
-            40.0
+            84.0,
+            92.0,
+            70.0,
+            20.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            24.0,
-            140.0,
-            216.0,
-            40.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_freeze",
-          "maxclass": "textbutton",
-          "text": "Freeze",
-          "texton": "Freeze",
-          "patching_rect": [
-            256.0,
-            140.0,
-            80.0,
-            40.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            256.0,
-            140.0,
-            80.0,
-            40.0
+            84.0,
+            92.0,
+            70.0,
+            20.0
           ]
         }
       },
@@ -189,9 +130,8 @@
         "box": {
           "id": "status_ui",
           "maxclass": "textedit",
-          "text": "listo",
+          "text": "arrancando\u2026",
           "fontsize": 12.0,
-          "fontname": "Arial",
           "bgcolor": [
             0.12,
             0.12,
@@ -205,24 +145,23 @@
             1.0
           ],
           "bordercolor": [
-            0.35,
-            0.35,
-            0.38,
+            0.4,
+            0.4,
+            0.42,
             1.0
           ],
-          "rounded": 4.0,
           "patching_rect": [
             24.0,
-            200.0,
-            312.0,
-            64.0
+            150.0,
+            320.0,
+            70.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            200.0,
-            312.0,
-            64.0
+            150.0,
+            320.0,
+            70.0
           ]
         }
       },
@@ -232,7 +171,6 @@
           "maxclass": "textedit",
           "text": "MIDI \u2014",
           "fontsize": 13.0,
-          "fontname": "Arial",
           "bgcolor": [
             0.12,
             0.12,
@@ -246,23 +184,22 @@
             1.0
           ],
           "bordercolor": [
-            0.35,
-            0.35,
-            0.38,
+            0.4,
+            0.4,
+            0.42,
             1.0
           ],
-          "rounded": 4.0,
           "patching_rect": [
             24.0,
-            276.0,
-            312.0,
+            232.0,
+            320.0,
             36.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            276.0,
-            312.0,
+            232.0,
+            320.0,
             36.0
           ]
         }
@@ -271,26 +208,77 @@
         "box": {
           "id": "foot",
           "maxclass": "comment",
-          "text": "ezdac rojo = audio \u00b7 Video abre otra ventana",
+          "text": "Si el altavoz no est\u00e1 rojo, Max \u2192 Options \u2192 Audio Status \u2192 On",
           "fontsize": 10.0,
           "textcolor": [
-            0.6,
-            0.6,
-            0.62,
+            0.55,
+            0.55,
+            0.58,
             1.0
           ],
           "patching_rect": [
             24.0,
-            324.0,
+            280.0,
             320.0,
-            20.0
+            36.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            324.0,
+            280.0,
             320.0,
-            20.0
+            36.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "btn_start",
+          "maxclass": "textbutton",
+          "text": "Start",
+          "texton": "Start",
+          "patching_rect": [
+            24.0,
+            340.0,
+            70.0,
+            28.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "btn_stop",
+          "maxclass": "textbutton",
+          "text": "Stop",
+          "texton": "Stop",
+          "patching_rect": [
+            100.0,
+            340.0,
+            70.0,
+            28.0
+          ],
+          "presentation": 0
+        }
+      },
+      {
+        "box": {
+          "id": "btn_video",
+          "maxclass": "textbutton",
+          "text": "Video",
+          "texton": "Video",
+          "patching_rect": [
+            176.0,
+            340.0,
+            70.0,
+            28.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            200.0,
+            84.0,
+            70.0,
+            36.0
           ]
         }
       },
@@ -314,8 +302,21 @@
           },
           "patching_rect": [
             24.0,
-            380.0,
-            380.0,
+            400.0,
+            400.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "bootjs",
+          "maxclass": "newobj",
+          "text": "js maxview_boot.js",
+          "patching_rect": [
+            24.0,
+            430.0,
+            140.0,
             22.0
           ]
         }
@@ -327,125 +328,8 @@
           "text": "route midi status levels ready frame fx noteui",
           "patching_rect": [
             24.0,
-            420.0,
-            260.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_start",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            24.0,
             460.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_stop",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            136.0,
-            460.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_video",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            24.0,
-            500.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_freeze",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            256.0,
-            460.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_start",
-          "maxclass": "message",
-          "text": "start",
-          "patching_rect": [
-            70.0,
-            460.0,
-            50.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_stop",
-          "maxclass": "message",
-          "text": "stop",
-          "patching_rect": [
-            180.0,
-            460.0,
-            50.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_freeze",
-          "maxclass": "message",
-          "text": "freeze",
-          "patching_rect": [
             300.0,
-            460.0,
-            55.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_open",
-          "maxclass": "message",
-          "text": "open D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
-          "patching_rect": [
-            70.0,
-            500.0,
-            400.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "pcontrol",
-          "maxclass": "newobj",
-          "text": "pcontrol",
-          "patching_rect": [
-            70.0,
-            530.0,
-            70.0,
             22.0
           ]
         }
@@ -456,8 +340,8 @@
           "maxclass": "newobj",
           "text": "s maxview_frame",
           "patching_rect": [
-            300.0,
-            420.0,
+            340.0,
+            460.0,
             110.0,
             22.0
           ]
@@ -469,8 +353,8 @@
           "maxclass": "newobj",
           "text": "r maxview_fxvis",
           "patching_rect": [
-            420.0,
-            420.0,
+            460.0,
+            460.0,
             110.0,
             22.0
           ]
@@ -482,8 +366,8 @@
           "maxclass": "message",
           "text": "fxvis $1",
           "patching_rect": [
-            420.0,
-            450.0,
+            460.0,
+            490.0,
             70.0,
             22.0
           ]
@@ -495,8 +379,8 @@
           "maxclass": "message",
           "text": "bind 192.168.29.2",
           "patching_rect": [
-            500.0,
-            380.0,
+            24.0,
+            520.0,
             130.0,
             22.0
           ]
@@ -508,9 +392,35 @@
           "maxclass": "message",
           "text": "cam 192.168.29.1",
           "patching_rect": [
-            500.0,
-            410.0,
+            160.0,
+            520.0,
             130.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_start",
+          "maxclass": "message",
+          "text": "start",
+          "patching_rect": [
+            300.0,
+            520.0,
+            50.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_stop",
+          "maxclass": "message",
+          "text": "stop",
+          "patching_rect": [
+            360.0,
+            520.0,
+            50.0,
             22.0
           ]
         }
@@ -521,8 +431,8 @@
           "maxclass": "newobj",
           "text": "unpack",
           "patching_rect": [
-            500.0,
-            460.0,
+            24.0,
+            560.0,
             55.0,
             22.0
           ]
@@ -530,12 +440,12 @@
       },
       {
         "box": {
-          "id": "makenote",
+          "id": "mn",
           "maxclass": "newobj",
-          "text": "makenote 110 450",
+          "text": "makenote 120 500",
           "patching_rect": [
-            500.0,
-            490.0,
+            24.0,
+            590.0,
             120.0,
             22.0
           ]
@@ -547,8 +457,8 @@
           "maxclass": "newobj",
           "text": "mtof",
           "patching_rect": [
-            640.0,
-            490.0,
+            160.0,
+            590.0,
             40.0,
             22.0
           ]
@@ -560,8 +470,8 @@
           "maxclass": "newobj",
           "text": "cycle~",
           "patching_rect": [
-            640.0,
-            520.0,
+            160.0,
+            620.0,
             50.0,
             22.0
           ]
@@ -571,10 +481,10 @@
         "box": {
           "id": "velo",
           "maxclass": "newobj",
-          "text": "* 0.006",
+          "text": "* 0.007",
           "patching_rect": [
-            700.0,
-            490.0,
+            220.0,
+            590.0,
             60.0,
             22.0
           ]
@@ -584,10 +494,10 @@
         "box": {
           "id": "packe",
           "maxclass": "newobj",
-          "text": "pack 0 15",
+          "text": "pack 0 10",
           "patching_rect": [
-            700.0,
-            520.0,
+            220.0,
+            620.0,
             70.0,
             22.0
           ]
@@ -595,12 +505,12 @@
       },
       {
         "box": {
-          "id": "line~",
+          "id": "line",
           "maxclass": "newobj",
           "text": "line~",
           "patching_rect": [
-            700.0,
-            550.0,
+            220.0,
+            650.0,
             45.0,
             22.0
           ]
@@ -612,8 +522,8 @@
           "maxclass": "newobj",
           "text": "*~",
           "patching_rect": [
-            640.0,
-            580.0,
+            160.0,
+            680.0,
             35.0,
             22.0
           ]
@@ -623,11 +533,11 @@
         "box": {
           "id": "gain",
           "maxclass": "newobj",
-          "text": "*~ 0.55",
+          "text": "*~ 0.6",
           "patching_rect": [
-            640.0,
-            610.0,
-            60.0,
+            160.0,
+            710.0,
+            55.0,
             22.0
           ]
         }
@@ -638,9 +548,35 @@
           "maxclass": "newobj",
           "text": "dac~",
           "patching_rect": [
-            640.0,
-            640.0,
+            160.0,
+            740.0,
             40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "click",
+          "maxclass": "newobj",
+          "text": "click~",
+          "patching_rect": [
+            280.0,
+            680.0,
+            55.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "clickg",
+          "maxclass": "newobj",
+          "text": "*~ 0.25",
+          "patching_rect": [
+            280.0,
+            710.0,
+            60.0,
             22.0
           ]
         }
@@ -651,8 +587,8 @@
           "maxclass": "newobj",
           "text": "loadbang",
           "patching_rect": [
-            780.0,
-            380.0,
+            500.0,
+            400.0,
             70.0,
             22.0
           ]
@@ -660,13 +596,65 @@
       },
       {
         "box": {
-          "id": "del",
+          "id": "d1",
           "maxclass": "newobj",
-          "text": "delay 1200",
+          "text": "delay 400",
           "patching_rect": [
-            780.0,
-            410.0,
+            500.0,
+            430.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "d2",
+          "maxclass": "newobj",
+          "text": "delay 1500",
+          "patching_rect": [
+            500.0,
+            460.0,
             80.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "d3",
+          "maxclass": "newobj",
+          "text": "delay 2500",
+          "patching_rect": [
+            500.0,
+            490.0,
+            80.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "d4",
+          "maxclass": "newobj",
+          "text": "delay 3500",
+          "patching_rect": [
+            500.0,
+            520.0,
+            80.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "one",
+          "maxclass": "message",
+          "text": "1",
+          "patching_rect": [
+            600.0,
+            430.0,
+            30.0,
             22.0
           ]
         }
@@ -677,8 +665,8 @@
           "maxclass": "message",
           "text": "script start",
           "patching_rect": [
-            780.0,
-            440.0,
+            600.0,
+            460.0,
             90.0,
             22.0
           ]
@@ -686,12 +674,25 @@
       },
       {
         "box": {
-          "id": "lm_dac",
-          "maxclass": "newobj",
-          "text": "loadmess 1",
+          "id": "msg_bangboot",
+          "maxclass": "message",
+          "text": "bang",
           "patching_rect": [
-            310.0,
-            80.0,
+            600.0,
+            490.0,
+            45.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_openvid",
+          "maxclass": "message",
+          "text": "openvideo",
+          "patching_rect": [
+            600.0,
+            520.0,
             80.0,
             22.0
           ]
@@ -699,26 +700,65 @@
       },
       {
         "box": {
-          "id": "del_vid",
+          "id": "sel_v",
           "maxclass": "newobj",
-          "text": "delay 2500",
+          "text": "sel 1",
           "patching_rect": [
-            780.0,
-            480.0,
-            80.0,
+            260.0,
+            340.0,
+            40.0,
             22.0
           ]
         }
       },
       {
         "box": {
-          "id": "msg_open_auto",
+          "id": "sel_s",
+          "maxclass": "newobj",
+          "text": "sel 1",
+          "patching_rect": [
+            24.0,
+            370.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "sel_t",
+          "maxclass": "newobj",
+          "text": "sel 1",
+          "patching_rect": [
+            100.0,
+            370.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "pc",
+          "maxclass": "newobj",
+          "text": "pcontrol",
+          "patching_rect": [
+            700.0,
+            490.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_pc",
           "maxclass": "message",
           "text": "open D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
           "patching_rect": [
-            780.0,
-            510.0,
-            400.0,
+            700.0,
+            520.0,
+            380.0,
             22.0
           ]
         }
@@ -728,11 +768,11 @@
       {
         "patchline": {
           "source": [
-            "btn_start",
+            "lb",
             0
           ],
           "destination": [
-            "sel_start",
+            "d1",
             0
           ]
         }
@@ -740,11 +780,275 @@
       {
         "patchline": {
           "source": [
-            "btn_stop",
+            "lb",
             0
           ],
           "destination": [
-            "sel_stop",
+            "d2",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lb",
+            0
+          ],
+          "destination": [
+            "d3",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lb",
+            0
+          ],
+          "destination": [
+            "d4",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "one",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "one",
+            0
+          ],
+          "destination": [
+            "ezdac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "msg_bangboot",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_bangboot",
+            0
+          ],
+          "destination": [
+            "bootjs",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d2",
+            0
+          ],
+          "destination": [
+            "msg_ss",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_ss",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d2",
+            0
+          ],
+          "destination": [
+            "msg_bind",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d2",
+            0
+          ],
+          "destination": [
+            "msg_cam",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_bind",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_cam",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d3",
+            0
+          ],
+          "destination": [
+            "msg_openvid",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_openvid",
+            0
+          ],
+          "destination": [
+            "bootjs",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d3",
+            0
+          ],
+          "destination": [
+            "msg_pc",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_pc",
+            0
+          ],
+          "destination": [
+            "pc",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d3",
+            0
+          ],
+          "destination": [
+            "one",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d4",
+            0
+          ],
+          "destination": [
+            "msg_start",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_start",
+            0
+          ],
+          "destination": [
+            "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d4",
+            0
+          ],
+          "destination": [
+            "click",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d4",
+            0
+          ],
+          "destination": [
+            "msg_openvid",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "bootjs",
+            1
+          ],
+          "destination": [
+            "ezdac",
             0
           ]
         }
@@ -756,7 +1060,7 @@
             0
           ],
           "destination": [
-            "sel_video",
+            "sel_v",
             0
           ]
         }
@@ -764,11 +1068,11 @@
       {
         "patchline": {
           "source": [
-            "btn_freeze",
+            "sel_v",
             0
           ],
           "destination": [
-            "sel_freeze",
+            "msg_openvid",
             0
           ]
         }
@@ -776,7 +1080,43 @@
       {
         "patchline": {
           "source": [
-            "sel_start",
+            "sel_v",
+            0
+          ],
+          "destination": [
+            "msg_pc",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "btn_start",
+            0
+          ],
+          "destination": [
+            "sel_s",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "btn_stop",
+            0
+          ],
+          "destination": [
+            "sel_t",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "sel_s",
             0
           ],
           "destination": [
@@ -788,47 +1128,11 @@
       {
         "patchline": {
           "source": [
-            "sel_stop",
+            "sel_t",
             0
           ],
           "destination": [
             "msg_stop",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "sel_video",
-            0
-          ],
-          "destination": [
-            "msg_open",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "sel_freeze",
-            0
-          ],
-          "destination": [
-            "msg_freeze",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_start",
-            0
-          ],
-          "destination": [
-            "node",
             0
           ]
         }
@@ -841,30 +1145,6 @@
           ],
           "destination": [
             "node",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_freeze",
-            0
-          ],
-          "destination": [
-            "node",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_open",
-            0
-          ],
-          "destination": [
-            "pcontrol",
             0
           ]
         }
@@ -944,23 +1224,11 @@
       {
         "patchline": {
           "source": [
-            "msg_bind",
-            0
+            "route",
+            6
           ],
           "destination": [
-            "node",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_cam",
-            0
-          ],
-          "destination": [
-            "node",
+            "note_ui",
             0
           ]
         }
@@ -996,7 +1264,7 @@
             0
           ],
           "destination": [
-            "makenote",
+            "mn",
             0
           ]
         }
@@ -1008,7 +1276,7 @@
             1
           ],
           "destination": [
-            "makenote",
+            "mn",
             1
           ]
         }
@@ -1016,7 +1284,7 @@
       {
         "patchline": {
           "source": [
-            "makenote",
+            "mn",
             0
           ],
           "destination": [
@@ -1028,7 +1296,7 @@
       {
         "patchline": {
           "source": [
-            "makenote",
+            "mn",
             1
           ],
           "destination": [
@@ -1068,7 +1336,7 @@
             0
           ],
           "destination": [
-            "line~",
+            "line",
             0
           ]
         }
@@ -1088,7 +1356,7 @@
       {
         "patchline": {
           "source": [
-            "line~",
+            "line",
             0
           ],
           "destination": [
@@ -1160,11 +1428,11 @@
       {
         "patchline": {
           "source": [
-            "lb",
+            "click",
             0
           ],
           "destination": [
-            "del",
+            "clickg",
             0
           ]
         }
@@ -1172,55 +1440,7 @@
       {
         "patchline": {
           "source": [
-            "del",
-            0
-          ],
-          "destination": [
-            "msg_ss",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_ss",
-            0
-          ],
-          "destination": [
-            "node",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "del",
-            0
-          ],
-          "destination": [
-            "msg_bind",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "del",
-            0
-          ],
-          "destination": [
-            "msg_cam",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "lm_dac",
+            "clickg",
             0
           ],
           "destination": [
@@ -1232,11 +1452,23 @@
       {
         "patchline": {
           "source": [
-            "lb",
+            "clickg",
             0
           ],
           "destination": [
-            "del_vid",
+            "ezdac",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "clickg",
+            0
+          ],
+          "destination": [
+            "dac",
             0
           ]
         }
@@ -1244,36 +1476,12 @@
       {
         "patchline": {
           "source": [
-            "del_vid",
+            "clickg",
             0
           ],
           "destination": [
-            "msg_open_auto",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_open_auto",
-            0
-          ],
-          "destination": [
-            "pcontrol",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "route",
-            6
-          ],
-          "destination": [
-            "note_ui",
-            0
+            "dac",
+            1
           ]
         }
       }

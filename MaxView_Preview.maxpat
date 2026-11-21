@@ -18,9 +18,9 @@
     "openinpresentation": 1,
     "toolbarvisible": 0,
     "bgcolor": [
-      0.92,
-      0.92,
-      0.92,
+      0.9,
+      0.9,
+      0.9,
       1.0
     ],
     "boxes": [
@@ -48,7 +48,7 @@
         "box": {
           "id": "bar",
           "maxclass": "comment",
-          "text": "MAX-VIEW",
+          "text": "MAX-VIEW  \u00b7  Full / Win / Mon1-3",
           "fontsize": 12.0,
           "fontname": "Arial Bold",
           "textcolor": [
@@ -60,14 +60,14 @@
           "patching_rect": [
             10.0,
             10.0,
-            90.0,
+            280.0,
             20.0
           ],
           "presentation": 1,
           "presentation_rect": [
             10.0,
             10.0,
-            90.0,
+            280.0,
             20.0
           ]
         }
@@ -79,14 +79,14 @@
           "text": "Full",
           "texton": "Full",
           "patching_rect": [
-            110.0,
+            300.0,
             6.0,
             50.0,
             26.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            110.0,
+            300.0,
             6.0,
             50.0,
             26.0
@@ -100,14 +100,14 @@
           "text": "Win",
           "texton": "Win",
           "patching_rect": [
-            166.0,
+            356.0,
             6.0,
             50.0,
             26.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            166.0,
+            356.0,
             6.0,
             50.0,
             26.0
@@ -121,14 +121,14 @@
           "text": "Mon1",
           "texton": "Mon1",
           "patching_rect": [
-            230.0,
+            420.0,
             6.0,
             54.0,
             26.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            230.0,
+            420.0,
             6.0,
             54.0,
             26.0
@@ -142,14 +142,14 @@
           "text": "Mon2",
           "texton": "Mon2",
           "patching_rect": [
-            290.0,
+            480.0,
             6.0,
             54.0,
             26.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            290.0,
+            480.0,
             6.0,
             54.0,
             26.0
@@ -163,14 +163,14 @@
           "text": "Mon3",
           "texton": "Mon3",
           "patching_rect": [
-            350.0,
+            540.0,
             6.0,
             54.0,
             26.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            350.0,
+            540.0,
             6.0,
             54.0,
             26.0
@@ -189,14 +189,14 @@
             1.0
           ],
           "patching_rect": [
-            420.0,
+            610.0,
             10.0,
             28.0,
             18.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            420.0,
+            610.0,
             10.0,
             28.0,
             18.0
@@ -208,14 +208,14 @@
           "id": "tgl_fx",
           "maxclass": "toggle",
           "patching_rect": [
-            448.0,
+            638.0,
             8.0,
             22.0,
             22.0
           ],
           "presentation": 1,
           "presentation_rect": [
-            448.0,
+            638.0,
             8.0,
             22.0,
             22.0
@@ -319,7 +319,7 @@
           "maxclass": "message",
           "text": "fullscreen 0, size 1280 760, offset 80 40",
           "patching_rect": [
-            166.0,
+            200.0,
             810.0,
             280.0,
             22.0
@@ -332,7 +332,7 @@
           "maxclass": "message",
           "text": "fullscreen 0, size 1280 760, offset 40 40",
           "patching_rect": [
-            230.0,
+            200.0,
             840.0,
             280.0,
             22.0
@@ -345,7 +345,7 @@
           "maxclass": "message",
           "text": "fullscreen 0, size 1280 760, offset 1920 40",
           "patching_rect": [
-            230.0,
+            200.0,
             870.0,
             280.0,
             22.0
@@ -358,7 +358,7 @@
           "maxclass": "message",
           "text": "fullscreen 0, size 1280 760, offset 3840 40",
           "patching_rect": [
-            230.0,
+            200.0,
             900.0,
             280.0,
             22.0
