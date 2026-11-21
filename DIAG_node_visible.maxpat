@@ -12,7 +12,7 @@
     "rect": [
       40,
       40,
-      780,
+      720,
       620
     ],
     "bglocked": 0,
@@ -22,42 +22,178 @@
         "box": {
           "id": "title",
           "maxclass": "comment",
-          "fontsize": 18.0,
+          "fontsize": 16.0,
           "fontname": "Arial Bold",
-          "text": "MAX-VIEW Microscope MIDI",
+          "text": "MAX-VIEW  |  ezdac debe estar ROJO = audio ON",
           "patching_rect": [
             20.0,
             8.0,
-            500.0,
-            26.0
+            600.0,
+            24.0
           ],
           "presentation": 1,
           "presentation_rect": [
             20.0,
-            12.0,
-            500.0,
-            26.0
+            8.0,
+            600.0,
+            24.0
           ]
         }
       },
       {
         "box": {
-          "id": "hint",
-          "maxclass": "comment",
-          "fontsize": 12.0,
-          "text": "Audio=ezdac~ | Preview abre video (fpic) | FX/Fullscreen en ventana Preview",
+          "id": "pic",
+          "maxclass": "fpic",
+          "pic": "D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
           "patching_rect": [
             20.0,
-            36.0,
-            700.0,
-            20.0
+            200.0,
+            640.0,
+            360.0
           ],
           "presentation": 1,
           "presentation_rect": [
             20.0,
-            42.0,
-            700.0,
+            40.0,
+            640.0,
+            360.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "btn_start",
+          "maxclass": "textbutton",
+          "text": "Start",
+          "texton": "Start",
+          "patching_rect": [
+            20.0,
+            40.0,
+            70.0,
+            28.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            420.0,
+            70.0,
+            28.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "btn_stop",
+          "maxclass": "textbutton",
+          "text": "Stop",
+          "texton": "Stop",
+          "patching_rect": [
+            100.0,
+            40.0,
+            70.0,
+            28.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            100.0,
+            420.0,
+            70.0,
+            28.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "ezdac",
+          "maxclass": "ezdac~",
+          "patching_rect": [
+            190.0,
+            40.0,
+            40.0,
+            40.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            190.0,
+            412.0,
+            40.0,
+            40.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "dac_lab",
+          "maxclass": "comment",
+          "text": "AUDIO",
+          "fontsize": 14.0,
+          "fontname": "Arial Bold",
+          "patching_rect": [
+            240.0,
+            50.0,
+            60.0,
             20.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            240.0,
+            422.0,
+            60.0,
+            20.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "status_ui",
+          "maxclass": "textedit",
+          "fontsize": 12.0,
+          "text": "(esperando\u2026)",
+          "bgcolor": [
+            1.0,
+            0.95,
+            0.6,
+            1.0
+          ],
+          "patching_rect": [
+            20.0,
+            580.0,
+            640.0,
+            50.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            470.0,
+            640.0,
+            50.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "note_ui",
+          "maxclass": "textedit",
+          "fontsize": 14.0,
+          "text": "MIDI: \u2014",
+          "bgcolor": [
+            0.8,
+            1.0,
+            0.85,
+            1.0
+          ],
+          "patching_rect": [
+            20.0,
+            640.0,
+            640.0,
+            30.0
+          ],
+          "presentation": 1,
+          "presentation_rect": [
+            20.0,
+            530.0,
+            640.0,
+            30.0
           ]
         }
       },
@@ -81,90 +217,20 @@
           },
           "patching_rect": [
             20.0,
-            70.0,
-            420.0,
-            22.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            430.0,
-            420.0,
+            90.0,
+            400.0,
             22.0
           ]
         }
       },
       {
         "box": {
-          "id": "btn_start",
-          "maxclass": "textbutton",
-          "text": "Start",
-          "texton": "Start",
-          "patching_rect": [
-            20.0,
-            110.0,
-            80.0,
-            32.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            80.0,
-            80.0,
-            32.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_stop",
-          "maxclass": "textbutton",
-          "text": "Stop",
-          "texton": "Stop",
-          "patching_rect": [
-            110.0,
-            110.0,
-            80.0,
-            32.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            110.0,
-            80.0,
-            80.0,
-            32.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "btn_prev",
-          "maxclass": "textbutton",
-          "text": "Preview",
-          "texton": "Preview",
-          "patching_rect": [
-            200.0,
-            110.0,
-            90.0,
-            32.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            200.0,
-            80.0,
-            90.0,
-            32.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_start",
+          "id": "sel_s",
           "maxclass": "newobj",
           "text": "sel 1",
           "patching_rect": [
             20.0,
-            150.0,
+            120.0,
             40.0,
             22.0
           ]
@@ -172,25 +238,12 @@
       },
       {
         "box": {
-          "id": "sel_stop",
+          "id": "sel_t",
           "maxclass": "newobj",
           "text": "sel 1",
           "patching_rect": [
-            110.0,
-            150.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "sel_prev",
-          "maxclass": "newobj",
-          "text": "sel 1",
-          "patching_rect": [
-            200.0,
-            150.0,
+            100.0,
+            120.0,
             40.0,
             22.0
           ]
@@ -203,7 +256,7 @@
           "text": "start",
           "patching_rect": [
             20.0,
-            180.0,
+            150.0,
             50.0,
             22.0
           ]
@@ -215,62 +268,10 @@
           "maxclass": "message",
           "text": "stop",
           "patching_rect": [
-            110.0,
-            180.0,
+            100.0,
+            150.0,
             50.0,
             22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_open",
-          "maxclass": "message",
-          "text": "; max openfile D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
-          "patching_rect": [
-            200.0,
-            180.0,
-            400.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "ezdac",
-          "maxclass": "ezdac~",
-          "patching_rect": [
-            320.0,
-            110.0,
-            48.0,
-            48.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            320.0,
-            72.0,
-            48.0,
-            48.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "dac_lab",
-          "maxclass": "comment",
-          "text": "Audio",
-          "patching_rect": [
-            380.0,
-            120.0,
-            50.0,
-            20.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            380.0,
-            88.0,
-            50.0,
-            20.0
           ]
         }
       },
@@ -280,8 +281,8 @@
           "maxclass": "newobj",
           "text": "route midi status levels ready frame fx",
           "patching_rect": [
-            20.0,
-            220.0,
+            450.0,
+            90.0,
             260.0,
             22.0
           ]
@@ -289,12 +290,12 @@
       },
       {
         "box": {
-          "id": "unpack",
+          "id": "unp",
           "maxclass": "newobj",
           "text": "unpack",
           "patching_rect": [
-            20.0,
-            260.0,
+            450.0,
+            130.0,
             55.0,
             22.0
           ]
@@ -306,8 +307,8 @@
           "maxclass": "newobj",
           "text": "mtof",
           "patching_rect": [
-            20.0,
-            290.0,
+            450.0,
+            160.0,
             40.0,
             22.0
           ]
@@ -319,8 +320,8 @@
           "maxclass": "newobj",
           "text": "cycle~",
           "patching_rect": [
-            20.0,
-            320.0,
+            450.0,
+            190.0,
             50.0,
             22.0
           ]
@@ -330,10 +331,10 @@
         "box": {
           "id": "velo",
           "maxclass": "newobj",
-          "text": "* 0.004",
+          "text": "* 0.005",
           "patching_rect": [
-            100.0,
-            260.0,
+            530.0,
+            130.0,
             60.0,
             22.0
           ]
@@ -341,12 +342,12 @@
       },
       {
         "box": {
-          "id": "packe",
+          "id": "pack_on",
           "maxclass": "newobj",
-          "text": "pack 0 30",
+          "text": "pack 0 5",
           "patching_rect": [
-            100.0,
-            290.0,
+            530.0,
+            160.0,
             70.0,
             22.0
           ]
@@ -358,8 +359,8 @@
           "maxclass": "newobj",
           "text": "line~",
           "patching_rect": [
-            100.0,
-            320.0,
+            530.0,
+            190.0,
             45.0,
             22.0
           ]
@@ -371,8 +372,8 @@
           "maxclass": "newobj",
           "text": "*~",
           "patching_rect": [
-            20.0,
-            360.0,
+            450.0,
+            230.0,
             35.0,
             22.0
           ]
@@ -382,10 +383,10 @@
         "box": {
           "id": "gain",
           "maxclass": "newobj",
-          "text": "*~ 0.3",
+          "text": "*~ 0.4",
           "patching_rect": [
-            20.0,
-            390.0,
+            450.0,
+            260.0,
             55.0,
             22.0
           ]
@@ -393,28 +394,14 @@
       },
       {
         "box": {
-          "id": "status_ui",
-          "maxclass": "textedit",
-          "fontsize": 13.0,
-          "text": "(esperando\u2026)",
-          "bgcolor": [
-            1.0,
-            0.92,
-            0.5,
-            1.0
-          ],
+          "id": "dac",
+          "maxclass": "newobj",
+          "text": "dac~",
           "patching_rect": [
-            20.0,
-            430.0,
-            700.0,
-            70.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            140.0,
-            700.0,
-            90.0
+            450.0,
+            290.0,
+            40.0,
+            22.0
           ]
         }
       },
@@ -424,8 +411,8 @@
           "maxclass": "newobj",
           "text": "sprintf MIDI %d vel %d",
           "patching_rect": [
-            420.0,
-            260.0,
+            600.0,
+            130.0,
             140.0,
             22.0
           ]
@@ -437,8 +424,8 @@
           "maxclass": "newobj",
           "text": "prepend set",
           "patching_rect": [
-            420.0,
-            290.0,
+            600.0,
+            160.0,
             90.0,
             22.0
           ]
@@ -446,48 +433,14 @@
       },
       {
         "box": {
-          "id": "note_ui",
-          "maxclass": "textedit",
-          "fontsize": 16.0,
-          "text": "MIDI: \u2014",
-          "bgcolor": [
-            0.75,
-            1.0,
-            0.8,
-            1.0
-          ],
+          "id": "spr",
+          "maxclass": "newobj",
+          "text": "sprintf read %s",
           "patching_rect": [
-            20.0,
-            510.0,
-            700.0,
-            36.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            240.0,
-            700.0,
-            40.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "pic",
-          "maxclass": "fpic",
-          "pic": "D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\preview.jpg",
-          "patching_rect": [
-            20.0,
-            560.0,
-            320.0,
-            180.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            20.0,
-            300.0,
-            480.0,
-            270.0
+            450.0,
+            340.0,
+            110.0,
+            22.0
           ]
         }
       },
@@ -495,102 +448,37 @@
         "box": {
           "id": "metro",
           "maxclass": "newobj",
-          "text": "metro 80",
+          "text": "metro 100",
           "patching_rect": [
-            360.0,
-            560.0,
-            70.0,
+            450.0,
+            380.0,
+            80.0,
             22.0
           ]
         }
       },
       {
         "box": {
-          "id": "tgl_vid",
-          "maxclass": "toggle",
-          "patching_rect": [
-            440.0,
-            558.0,
-            24.0,
-            24.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            520.0,
-            300.0,
-            28.0,
-            28.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "vid_lab",
-          "maxclass": "comment",
-          "text": "Refresh",
-          "patching_rect": [
-            470.0,
-            560.0,
-            60.0,
-            20.0
-          ],
-          "presentation": 1,
-          "presentation_rect": [
-            556.0,
-            304.0,
-            60.0,
-            20.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_read",
-          "maxclass": "message",
-          "text": "read D:\\Dv\\Repo\\Android\\MaxView\\MaxViewInstrument\\preview.jpg",
-          "patching_rect": [
-            360.0,
-            600.0,
-            320.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "s_frame",
+          "id": "loadmess_metro",
           "maxclass": "newobj",
-          "text": "s maxview_frame",
+          "text": "loadmess 1",
           "patching_rect": [
-            360.0,
-            640.0,
-            110.0,
+            540.0,
+            380.0,
+            80.0,
             22.0
           ]
         }
       },
       {
         "box": {
-          "id": "r_fx",
-          "maxclass": "newobj",
-          "text": "r maxview_fxvis",
-          "patching_rect": [
-            360.0,
-            670.0,
-            110.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_fx",
+          "id": "msg_read_a",
           "maxclass": "message",
-          "text": "fxvis $1",
+          "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
           "patching_rect": [
-            480.0,
-            670.0,
-            70.0,
+            450.0,
+            410.0,
+            280.0,
             22.0
           ]
         }
@@ -601,8 +489,8 @@
           "maxclass": "message",
           "text": "bind 192.168.29.2",
           "patching_rect": [
-            520.0,
-            110.0,
+            700.0,
+            90.0,
             130.0,
             22.0
           ]
@@ -614,8 +502,8 @@
           "maxclass": "message",
           "text": "cam 192.168.29.1",
           "patching_rect": [
-            520.0,
-            140.0,
+            700.0,
+            120.0,
             130.0,
             22.0
           ]
@@ -627,8 +515,8 @@
           "maxclass": "newobj",
           "text": "loadbang",
           "patching_rect": [
-            660.0,
-            70.0,
+            700.0,
+            160.0,
             70.0,
             22.0
           ]
@@ -638,10 +526,10 @@
         "box": {
           "id": "del",
           "maxclass": "newobj",
-          "text": "delay 2500",
+          "text": "delay 1500",
           "patching_rect": [
-            660.0,
-            100.0,
+            700.0,
+            190.0,
             80.0,
             22.0
           ]
@@ -653,8 +541,8 @@
           "maxclass": "message",
           "text": "script start",
           "patching_rect": [
-            660.0,
-            130.0,
+            700.0,
+            220.0,
             90.0,
             22.0
           ]
@@ -662,12 +550,12 @@
       },
       {
         "box": {
-          "id": "one",
+          "id": "msg_dac1",
           "maxclass": "message",
           "text": "1",
           "patching_rect": [
-            660.0,
-            160.0,
+            700.0,
+            250.0,
             30.0,
             22.0
           ]
@@ -675,12 +563,12 @@
       },
       {
         "box": {
-          "id": "del_open",
+          "id": "loadmess_dac",
           "maxclass": "newobj",
-          "text": "delay 4000",
+          "text": "loadmess 1",
           "patching_rect": [
-            660.0,
-            200.0,
+            280.0,
+            40.0,
             80.0,
             22.0
           ]
@@ -695,7 +583,7 @@
             0
           ],
           "destination": [
-            "sel_start",
+            "sel_s",
             0
           ]
         }
@@ -707,7 +595,7 @@
             0
           ],
           "destination": [
-            "sel_stop",
+            "sel_t",
             0
           ]
         }
@@ -715,19 +603,7 @@
       {
         "patchline": {
           "source": [
-            "btn_prev",
-            0
-          ],
-          "destination": [
-            "sel_prev",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "sel_start",
+            "sel_s",
             0
           ],
           "destination": [
@@ -739,23 +615,11 @@
       {
         "patchline": {
           "source": [
-            "sel_stop",
+            "sel_t",
             0
           ],
           "destination": [
             "msg_stop",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "sel_prev",
-            0
-          ],
-          "destination": [
-            "msg_open",
             0
           ]
         }
@@ -803,7 +667,7 @@
             0
           ],
           "destination": [
-            "unpack",
+            "unp",
             0
           ]
         }
@@ -823,7 +687,7 @@
       {
         "patchline": {
           "source": [
-            "unpack",
+            "unp",
             0
           ],
           "destination": [
@@ -835,7 +699,7 @@
       {
         "patchline": {
           "source": [
-            "unpack",
+            "unp",
             1
           ],
           "destination": [
@@ -863,7 +727,7 @@
             0
           ],
           "destination": [
-            "packe",
+            "pack_on",
             0
           ]
         }
@@ -871,7 +735,7 @@
       {
         "patchline": {
           "source": [
-            "packe",
+            "pack_on",
             0
           ],
           "destination": [
@@ -937,6 +801,42 @@
           "destination": [
             "ezdac",
             1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "dac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "dac",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            1
+          ],
+          "destination": [
+            "status_ui",
+            0
           ]
         }
       },
@@ -1019,7 +919,7 @@
             4
           ],
           "destination": [
-            "s_frame",
+            "spr",
             0
           ]
         }
@@ -1027,43 +927,7 @@
       {
         "patchline": {
           "source": [
-            "route",
-            4
-          ],
-          "destination": [
-            "msg_read",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "tgl_vid",
-            0
-          ],
-          "destination": [
-            "metro",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "metro",
-            0
-          ],
-          "destination": [
-            "msg_read",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "msg_read",
+            "spr",
             0
           ],
           "destination": [
@@ -1075,11 +939,11 @@
       {
         "patchline": {
           "source": [
-            "r_fx",
+            "loadmess_metro",
             0
           ],
           "destination": [
-            "msg_fx",
+            "metro",
             0
           ]
         }
@@ -1087,11 +951,23 @@
       {
         "patchline": {
           "source": [
-            "msg_fx",
+            "metro",
             0
           ],
           "destination": [
-            "node",
+            "msg_read_a",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_read_a",
+            0
+          ],
+          "destination": [
+            "pic",
             0
           ]
         }
@@ -1139,30 +1015,6 @@
             0
           ],
           "destination": [
-            "one",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "one",
-            0
-          ],
-          "destination": [
-            "tgl_vid",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "del",
-            0
-          ],
-          "destination": [
             "msg_bind",
             0
           ]
@@ -1183,11 +1035,35 @@
       {
         "patchline": {
           "source": [
-            "route",
-            1
+            "loadmess_dac",
+            0
           ],
           "destination": [
-            "status_ui",
+            "ezdac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "lb",
+            0
+          ],
+          "destination": [
+            "msg_dac1",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_dac1",
+            0
+          ],
+          "destination": [
+            "ezdac",
             0
           ]
         }

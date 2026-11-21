@@ -72,9 +72,15 @@ let installing = false;
 let previewEnabled = true;
 let visualFx = true;
 let lastPreviewT = 0;
+let previewFlip = 0;
 const PREVIEW_MIN_MS = 66; // ~15 fps a disco
-const PREVIEW_PATH = path.join(__dirname, "preview.jpg");
+const PREVIEW_PATHS = [
+  path.join(__dirname, "preview_a.jpg"),
+  path.join(__dirname, "preview_b.jpg"),
+];
 const PREVIEW_TMP = path.join(__dirname, "preview.tmp.jpg");
+// alias legacy
+const PREVIEW_PATH = path.join(__dirname, "preview.jpg");
 /** Intensidad de flash por banda (treble, mid, bass) para el efecto visual */
 let bandFlash = [0, 0, 0];
 let lastLevels = [0, 0, 0];
@@ -354,17 +360,25 @@ async function writePreview(jpg) {
         }
       }
     }
+    // Alternar A/B para que fpic recargue (si no, cachea el mismo path)
+    previewFlip ^= 1;
+    const dest = PREVIEW_PATHS[previewFlip];
     fs.writeFileSync(PREVIEW_TMP, out);
     try {
-      fs.renameSync(PREVIEW_TMP, PREVIEW_PATH);
+      fs.renameSync(PREVIEW_TMP, dest);
     } catch (_) {
-      fs.copyFileSync(PREVIEW_TMP, PREVIEW_PATH);
+      fs.copyFileSync(PREVIEW_TMP, dest);
     }
-    Max.outlet("frame", PREVIEW_PATH.replace(/\\/g, "/"));
+    try {
+      fs.copyFileSync(dest, PREVIEW_PATH);
+    } catch (_) {}
+    Max.outlet("frame", dest.replace(/\\/g, "/"));
   } catch (e) {
     try {
-      fs.writeFileSync(PREVIEW_PATH, jpg);
-      Max.outlet("frame", PREVIEW_PATH.replace(/\\/g, "/"));
+      previewFlip ^= 1;
+      const dest = PREVIEW_PATHS[previewFlip];
+      fs.writeFileSync(dest, jpg);
+      Max.outlet("frame", dest.replace(/\\/g, "/"));
     } catch (_) {}
     fileLog("preview write fail: " + e.message);
   }
@@ -539,6 +553,13 @@ function start() {
     notesFired = 0;
     framesSinceStart = 0;
     status("started cam=" + camIp + " bind=" + local + " (solo movimiento)");
+    // Acorde de prueba para verificar audio al arrancar
+    setTimeout(() => {
+      noteOn(60, 100);
+      noteOn(64, 90);
+      noteOn(67, 90);
+      status("TEST audio Cmaj — mueve bajo el objetivo para mas notas");
+    }, 500);
   } catch (e) {
     status("start failed: " + e.message);
     stop();
