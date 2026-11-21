@@ -24,7 +24,7 @@
           "maxclass": "comment",
           "fontsize": 16.0,
           "fontname": "Arial Bold",
-          "text": "MAX-VIEW  |  ezdac debe estar ROJO = audio ON",
+          "text": "MAX-VIEW  |  3 bandas  |  clic ezdac si no hay sonido",
           "patching_rect": [
             20.0,
             8.0,
@@ -125,7 +125,7 @@
         "box": {
           "id": "dac_lab",
           "maxclass": "comment",
-          "text": "AUDIO",
+          "text": "AUDIO ON",
           "fontsize": 14.0,
           "fontname": "Arial Bold",
           "patching_rect": [
@@ -201,7 +201,7 @@
         "box": {
           "id": "node",
           "maxclass": "newobj",
-          "text": "node.script maxview_microscope.js @autostart 1",
+          "text": "node.script maxview_microscope.js @autostart 1 @defer 1",
           "textfile": {
             "filename": "maxview_microscope.js",
             "flags": 0,
@@ -210,7 +210,7 @@
           },
           "saved_object_attributes": {
             "autostart": 1,
-            "defer": 0,
+            "defer": 1,
             "node": "",
             "npm": "",
             "watch": 1
@@ -284,149 +284,6 @@
             450.0,
             90.0,
             260.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "unp",
-          "maxclass": "newobj",
-          "text": "unpack",
-          "patching_rect": [
-            450.0,
-            130.0,
-            55.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "mtof",
-          "maxclass": "newobj",
-          "text": "mtof",
-          "patching_rect": [
-            450.0,
-            160.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "cycle",
-          "maxclass": "newobj",
-          "text": "cycle~",
-          "patching_rect": [
-            450.0,
-            190.0,
-            50.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "velo",
-          "maxclass": "newobj",
-          "text": "* 0.005",
-          "patching_rect": [
-            530.0,
-            130.0,
-            60.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "pack_on",
-          "maxclass": "newobj",
-          "text": "pack 0 5",
-          "patching_rect": [
-            530.0,
-            160.0,
-            70.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "line",
-          "maxclass": "newobj",
-          "text": "line~",
-          "patching_rect": [
-            530.0,
-            190.0,
-            45.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "mul",
-          "maxclass": "newobj",
-          "text": "*~",
-          "patching_rect": [
-            450.0,
-            230.0,
-            35.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "gain",
-          "maxclass": "newobj",
-          "text": "*~ 0.4",
-          "patching_rect": [
-            450.0,
-            260.0,
-            55.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "dac",
-          "maxclass": "newobj",
-          "text": "dac~",
-          "patching_rect": [
-            450.0,
-            290.0,
-            40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "note_fmt",
-          "maxclass": "newobj",
-          "text": "sprintf MIDI %d vel %d",
-          "patching_rect": [
-            600.0,
-            130.0,
-            140.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "note_set",
-          "maxclass": "newobj",
-          "text": "prepend set",
-          "patching_rect": [
-            600.0,
-            160.0,
-            90.0,
             22.0
           ]
         }
@@ -612,6 +469,201 @@
             22.0
           ]
         }
+      },
+      {
+        "box": {
+          "id": "unp",
+          "maxclass": "newobj",
+          "text": "unpack",
+          "patching_rect": [
+            450.0,
+            120.0,
+            55.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "makenote",
+          "maxclass": "newobj",
+          "text": "makenote 100 400",
+          "patching_rect": [
+            450.0,
+            150.0,
+            120.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "noteout",
+          "maxclass": "newobj",
+          "text": "noteout",
+          "patching_rect": [
+            450.0,
+            180.0,
+            55.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mtof",
+          "maxclass": "newobj",
+          "text": "mtof",
+          "patching_rect": [
+            600.0,
+            150.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "cycle",
+          "maxclass": "newobj",
+          "text": "cycle~",
+          "patching_rect": [
+            600.0,
+            180.0,
+            50.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "velo_div",
+          "maxclass": "newobj",
+          "text": "* 0.006",
+          "patching_rect": [
+            680.0,
+            150.0,
+            60.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "pack_env",
+          "maxclass": "newobj",
+          "text": "pack 0 20",
+          "patching_rect": [
+            680.0,
+            180.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "line",
+          "maxclass": "newobj",
+          "text": "line~",
+          "patching_rect": [
+            680.0,
+            210.0,
+            45.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "mul",
+          "maxclass": "newobj",
+          "text": "*~",
+          "patching_rect": [
+            600.0,
+            240.0,
+            35.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "gain",
+          "maxclass": "newobj",
+          "text": "*~ 0.55",
+          "patching_rect": [
+            600.0,
+            270.0,
+            60.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "dac",
+          "maxclass": "newobj",
+          "text": "dac~",
+          "patching_rect": [
+            600.0,
+            300.0,
+            40.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "note_fmt",
+          "maxclass": "newobj",
+          "text": "sprintf MIDI %d vel %d",
+          "patching_rect": [
+            750.0,
+            120.0,
+            140.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "note_set",
+          "maxclass": "newobj",
+          "text": "prepend set",
+          "patching_rect": [
+            750.0,
+            150.0,
+            90.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "audio_status",
+          "maxclass": "newobj",
+          "text": "adstatus",
+          "patching_rect": [
+            280.0,
+            80.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_audio_on",
+          "maxclass": "message",
+          "text": "set 1",
+          "patching_rect": [
+            280.0,
+            110.0,
+            50.0,
+            22.0
+          ]
+        }
       }
     ],
     "lines": [
@@ -703,202 +755,10 @@
         "patchline": {
           "source": [
             "route",
-            0
-          ],
-          "destination": [
-            "unp",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "route",
-            0
-          ],
-          "destination": [
-            "note_fmt",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "unp",
-            0
-          ],
-          "destination": [
-            "mtof",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "unp",
-            1
-          ],
-          "destination": [
-            "velo",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "mtof",
-            0
-          ],
-          "destination": [
-            "cycle",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "velo",
-            0
-          ],
-          "destination": [
-            "pack_on",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "pack_on",
-            0
-          ],
-          "destination": [
-            "line",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "cycle",
-            0
-          ],
-          "destination": [
-            "mul",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "line",
-            0
-          ],
-          "destination": [
-            "mul",
-            1
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "mul",
-            0
-          ],
-          "destination": [
-            "gain",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "gain",
-            0
-          ],
-          "destination": [
-            "ezdac",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "gain",
-            0
-          ],
-          "destination": [
-            "ezdac",
-            1
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "gain",
-            0
-          ],
-          "destination": [
-            "dac",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "gain",
-            0
-          ],
-          "destination": [
-            "dac",
-            1
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "route",
             1
           ],
           "destination": [
             "status_ui",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "note_fmt",
-            0
-          ],
-          "destination": [
-            "note_set",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "note_set",
-            0
-          ],
-          "destination": [
-            "note_ui",
             0
           ]
         }
@@ -1139,6 +999,246 @@
           ],
           "destination": [
             "node",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            0
+          ],
+          "destination": [
+            "unp",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            0
+          ],
+          "destination": [
+            "note_fmt",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "unp",
+            0
+          ],
+          "destination": [
+            "makenote",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "unp",
+            1
+          ],
+          "destination": [
+            "makenote",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "makenote",
+            0
+          ],
+          "destination": [
+            "noteout",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "makenote",
+            1
+          ],
+          "destination": [
+            "noteout",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "makenote",
+            0
+          ],
+          "destination": [
+            "mtof",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "makenote",
+            1
+          ],
+          "destination": [
+            "velo_div",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "velo_div",
+            0
+          ],
+          "destination": [
+            "pack_env",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "pack_env",
+            0
+          ],
+          "destination": [
+            "line",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mtof",
+            0
+          ],
+          "destination": [
+            "cycle",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "cycle",
+            0
+          ],
+          "destination": [
+            "mul",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "line",
+            0
+          ],
+          "destination": [
+            "mul",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mul",
+            0
+          ],
+          "destination": [
+            "gain",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "ezdac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "ezdac",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "dac",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "gain",
+            0
+          ],
+          "destination": [
+            "dac",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "note_fmt",
+            0
+          ],
+          "destination": [
+            "note_set",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "note_set",
+            0
+          ],
+          "destination": [
+            "note_ui",
             0
           ]
         }

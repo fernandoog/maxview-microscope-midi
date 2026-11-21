@@ -45,7 +45,7 @@ let bindIp = null;
 let sensitivity = 0.7;
 let gate = 0.04;
 let maxVelocity = 110;
-let holdMs = 220;
+let holdMs = 450;
 let scaleName = "pentatonic";
 let lastNoteAt = [0, 0, 0];
 let noteCooldownMs = 140;
@@ -70,7 +70,7 @@ let fps = 0;
 let scriptReady = false;
 let installing = false;
 let previewEnabled = true;
-let visualFx = true;
+let visualFx = true; // efecto elegante (líneas + borde); no tapa el vídeo
 let lastPreviewT = 0;
 let previewFlip = 0;
 const PREVIEW_MIN_MS = 66; // ~15 fps a disco
@@ -227,6 +227,7 @@ function noteOn(pitch, vel) {
   pitch = Math.max(0, Math.min(127, pitch | 0));
   vel = Math.max(1, Math.min(127, vel | 0));
   if (activeNotes.has(pitch)) clearTimeout(activeNotes.get(pitch));
+  // pitch/vel por outlet tipado (más fiable para synth en Max)
   Max.outlet("midi", pitch, vel);
   const t = setTimeout(() => {
     Max.outlet("midi", pitch, 0);
@@ -304,6 +305,71 @@ function bandDiffMaps(gray, width, height, prev) {
 
 let decodeBusy = false;
 
+/**
+ * FX discreto: 2 líneas finas (3 bandas) + brillo suave solo en el borde izquierdo
+ * cuando hay nota — no tapa el centro del vídeo.
+ */
+async function renderElegantFx(jpg) {
+  const meta = await sharp(jpg).metadata();
+  const w = meta.width || 640;
+  const h = meta.height || 360;
+  const h1 = Math.floor(h / 3);
+  const h2 = Math.floor((2 * h) / 3);
+  const stripW = Math.max(6, Math.floor(w * 0.028));
+  const overlays = [];
+
+  // Líneas divisorias finas (siempre, muy sutiles)
+  const lineH = 1;
+  for (const y of [h1, h2]) {
+    const line = await sharp({
+      create: {
+        width: w,
+        height: lineH,
+        channels: 4,
+        background: { r: 255, g: 255, b: 255, alpha: 55 },
+      },
+    })
+      .png()
+      .toBuffer();
+    overlays.push({ input: line, top: y, left: 0 });
+  }
+
+  // Destello lateral por banda (T/M/B) — colores suaves
+  const colors = [
+    { rgb: [140, 210, 255], a: bandFlash[0] }, // treble
+    { rgb: [170, 230, 180], a: bandFlash[1] }, // mid
+    { rgb: [255, 190, 140], a: bandFlash[2] }, // bass
+  ];
+  const tops = [0, h1, h2];
+  const heights = [h1, h2 - h1, h - h2];
+  for (let i = 0; i < 3; i++) {
+    const strength = Math.min(1, colors[i].a * 0.85 + (lastLevels[i] || 0) * 0.25);
+    if (strength < 0.04 || heights[i] < 2) continue;
+    const alpha = Math.min(90, Math.floor(28 + strength * 55));
+    const edge = await sharp({
+      create: {
+        width: stripW,
+        height: heights[i],
+        channels: 4,
+        background: {
+          r: colors[i].rgb[0],
+          g: colors[i].rgb[1],
+          b: colors[i].rgb[2],
+          alpha,
+        },
+      },
+    })
+      .png()
+      .toBuffer();
+    overlays.push({ input: edge, top: tops[i], left: 0 });
+  }
+
+  return sharp(jpg)
+    .composite(overlays)
+    .jpeg({ quality: 78, chromaSubsampling: "4:2:0" })
+    .toBuffer();
+}
+
 async function writePreview(jpg) {
   if (!previewEnabled || !jpg || !jpg.length) return;
   const now = Date.now();
@@ -312,53 +378,7 @@ async function writePreview(jpg) {
   try {
     let out = jpg;
     if (visualFx && sharp) {
-      const flashes = bandFlash;
-      const levels = lastLevels;
-      const strength = [
-        Math.min(1, flashes[0] * 0.9 + levels[0] * 0.35),
-        Math.min(1, flashes[1] * 0.9 + levels[1] * 0.35),
-        Math.min(1, flashes[2] * 0.9 + levels[2] * 0.35),
-      ];
-      if (strength[0] + strength[1] + strength[2] > 0.02) {
-        const meta = await sharp(jpg).metadata();
-        const w = meta.width || 640;
-        const h = meta.height || 360;
-        const h1 = (h / 3) | 0;
-        const h2 = ((2 * h) / 3) | 0;
-        // RGBA overlays: treble cyan, mid lime, bass orange
-        const bands = [
-          { top: 0, height: h1, rgb: [0, 200, 255], a: strength[0] },
-          { top: h1, height: h2 - h1, rgb: [80, 255, 100], a: strength[1] },
-          { top: h2, height: h - h2, rgb: [255, 70, 40], a: strength[2] },
-        ];
-        const overlays = [];
-        for (const b of bands) {
-          if (b.a < 0.03 || b.height < 1) continue;
-          const alpha = Math.min(180, Math.floor(b.a * 160));
-          const buf = await sharp({
-            create: {
-              width: w,
-              height: b.height,
-              channels: 4,
-              background: {
-                r: b.rgb[0],
-                g: b.rgb[1],
-                b: b.rgb[2],
-                alpha,
-              },
-            },
-          })
-            .png()
-            .toBuffer();
-          overlays.push({ input: buf, top: b.top, left: 0 });
-        }
-        if (overlays.length) {
-          out = await sharp(jpg)
-            .composite(overlays)
-            .jpeg({ quality: 70, chromaSubsampling: "4:2:0" })
-            .toBuffer();
-        }
-      }
+      out = await renderElegantFx(jpg);
     }
     // Alternar A/B para que fpic recargue (si no, cachea el mismo path)
     previewFlip ^= 1;
