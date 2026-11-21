@@ -10,14 +10,19 @@
     },
     "classnamespace": "box",
     "rect": [
-      60.0,
-      60.0,
-      420.0,
-      400.0
+      80.0,
+      80.0,
+      380.0,
+      390.0
     ],
-    "bglocked": 0,
     "openinpresentation": 1,
     "toolbarvisible": 0,
+    "bgcolor": [
+      0.18,
+      0.18,
+      0.2,
+      1.0
+    ],
     "boxes": [
       {
         "box": {
@@ -26,6 +31,12 @@
           "text": "MAX-VIEW",
           "fontsize": 22.0,
           "fontname": "Arial Bold",
+          "textcolor": [
+            0.95,
+            0.95,
+            0.95,
+            1.0
+          ],
           "patching_rect": [
             24.0,
             16.0,
@@ -35,7 +46,7 @@
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            20.0,
+            18.0,
             200.0,
             28.0
           ]
@@ -47,6 +58,12 @@
           "maxclass": "comment",
           "text": "microscopio \u2192 MIDI",
           "fontsize": 11.0,
+          "textcolor": [
+            0.7,
+            0.7,
+            0.72,
+            1.0
+          ],
           "patching_rect": [
             24.0,
             44.0,
@@ -56,7 +73,7 @@
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            48.0,
+            46.0,
             200.0,
             18.0
           ]
@@ -78,7 +95,7 @@
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            84.0,
+            80.0,
             100.0,
             40.0
           ]
@@ -100,7 +117,7 @@
           "presentation": 1,
           "presentation_rect": [
             136.0,
-            84.0,
+            80.0,
             100.0,
             40.0
           ]
@@ -119,7 +136,7 @@
           "presentation": 1,
           "presentation_rect": [
             256.0,
-            82.0,
+            78.0,
             44.0,
             44.0
           ]
@@ -141,7 +158,7 @@
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            144.0,
+            140.0,
             216.0,
             40.0
           ]
@@ -162,7 +179,7 @@
           "presentation": 1,
           "presentation_rect": [
             256.0,
-            144.0,
+            140.0,
             80.0,
             40.0
           ]
@@ -172,32 +189,40 @@
         "box": {
           "id": "status_ui",
           "maxclass": "textedit",
-          "text": "\u2026",
+          "text": "listo",
           "fontsize": 12.0,
+          "fontname": "Arial",
           "bgcolor": [
-            0.96,
-            0.96,
-            0.96,
+            0.12,
+            0.12,
+            0.14,
+            1.0
+          ],
+          "textcolor": [
+            0.95,
+            0.95,
+            0.92,
             1.0
           ],
           "bordercolor": [
-            0.85,
-            0.85,
-            0.85,
+            0.35,
+            0.35,
+            0.38,
             1.0
           ],
+          "rounded": 4.0,
           "patching_rect": [
             24.0,
             200.0,
             312.0,
-            56.0
+            64.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            204.0,
+            200.0,
             312.0,
-            56.0
+            64.0
           ]
         }
       },
@@ -207,24 +232,38 @@
           "maxclass": "textedit",
           "text": "MIDI \u2014",
           "fontsize": 13.0,
+          "fontname": "Arial",
           "bgcolor": [
-            0.94,
-            0.97,
-            0.94,
+            0.12,
+            0.12,
+            0.14,
             1.0
           ],
+          "textcolor": [
+            0.7,
+            1.0,
+            0.75,
+            1.0
+          ],
+          "bordercolor": [
+            0.35,
+            0.35,
+            0.38,
+            1.0
+          ],
+          "rounded": 4.0,
           "patching_rect": [
             24.0,
-            268.0,
+            276.0,
             312.0,
-            32.0
+            36.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            272.0,
+            276.0,
             312.0,
-            32.0
+            36.0
           ]
         }
       },
@@ -232,20 +271,26 @@
         "box": {
           "id": "foot",
           "maxclass": "comment",
-          "text": "Audio: ezdac en rojo. Video: ventana aparte (Mon1/2/3).",
+          "text": "ezdac rojo = audio \u00b7 Video abre otra ventana",
           "fontsize": 10.0,
+          "textcolor": [
+            0.6,
+            0.6,
+            0.62,
+            1.0
+          ],
           "patching_rect": [
             24.0,
-            312.0,
+            324.0,
             320.0,
-            32.0
+            20.0
           ],
           "presentation": 1,
           "presentation_rect": [
             24.0,
-            316.0,
+            324.0,
             320.0,
-            32.0
+            20.0
           ]
         }
       },
@@ -279,7 +324,7 @@
         "box": {
           "id": "route",
           "maxclass": "newobj",
-          "text": "route midi status levels ready frame fx",
+          "text": "route midi status levels ready frame fx noteui",
           "patching_rect": [
             24.0,
             420.0,
@@ -321,7 +366,7 @@
           "text": "sel 1",
           "patching_rect": [
             24.0,
-            490.0,
+            500.0,
             40.0,
             22.0
           ]
@@ -383,779 +428,22 @@
         "box": {
           "id": "msg_open",
           "maxclass": "message",
-          "text": "open",
+          "text": "open D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
           "patching_rect": [
             70.0,
-            490.0,
-            45.0,
+            500.0,
+            400.0,
             22.0
           ]
         }
       },
       {
         "box": {
-          "id": "p_video",
+          "id": "pcontrol",
           "maxclass": "newobj",
-          "text": "p video",
-          "patcher": {
-            "fileversion": 1,
-            "appversion": {
-              "major": 8,
-              "minor": 6,
-              "revision": 0,
-              "architecture": "x64",
-              "modernui": 1
-            },
-            "classnamespace": "box",
-            "rect": [
-              100.0,
-              60.0,
-              1300.0,
-              820.0
-            ],
-            "openinpresentation": 1,
-            "toolbarvisible": 0,
-            "boxes": [
-              {
-                "box": {
-                  "id": "pic",
-                  "maxclass": "fpic",
-                  "pic": "D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
-                  "patching_rect": [
-                    0.0,
-                    36.0,
-                    1280.0,
-                    720.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    0.0,
-                    36.0,
-                    1280.0,
-                    720.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "bar",
-                  "maxclass": "comment",
-                  "text": "MAX-VIEW",
-                  "fontsize": 12.0,
-                  "fontname": "Arial Bold",
-                  "patching_rect": [
-                    8.0,
-                    8.0,
-                    90.0,
-                    20.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    8.0,
-                    8.0,
-                    90.0,
-                    20.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "btn_fs",
-                  "maxclass": "textbutton",
-                  "text": "Full",
-                  "texton": "Full",
-                  "patching_rect": [
-                    110.0,
-                    4.0,
-                    50.0,
-                    26.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    110.0,
-                    4.0,
-                    50.0,
-                    26.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "btn_win",
-                  "maxclass": "textbutton",
-                  "text": "Win",
-                  "texton": "Win",
-                  "patching_rect": [
-                    166.0,
-                    4.0,
-                    50.0,
-                    26.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    166.0,
-                    4.0,
-                    50.0,
-                    26.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "btn_m1",
-                  "maxclass": "textbutton",
-                  "text": "Mon1",
-                  "texton": "Mon1",
-                  "patching_rect": [
-                    230.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    230.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "btn_m2",
-                  "maxclass": "textbutton",
-                  "text": "Mon2",
-                  "texton": "Mon2",
-                  "patching_rect": [
-                    290.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    290.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "btn_m3",
-                  "maxclass": "textbutton",
-                  "text": "Mon3",
-                  "texton": "Mon3",
-                  "patching_rect": [
-                    350.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    350.0,
-                    4.0,
-                    54.0,
-                    26.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "fx_lab",
-                  "maxclass": "comment",
-                  "text": "FX",
-                  "patching_rect": [
-                    420.0,
-                    8.0,
-                    28.0,
-                    18.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    420.0,
-                    8.0,
-                    28.0,
-                    18.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "tgl_fx",
-                  "maxclass": "toggle",
-                  "patching_rect": [
-                    448.0,
-                    6.0,
-                    22.0,
-                    22.0
-                  ],
-                  "presentation": 1,
-                  "presentation_rect": [
-                    448.0,
-                    6.0,
-                    22.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "tp",
-                  "maxclass": "newobj",
-                  "text": "thispatcher",
-                  "patching_rect": [
-                    20.0,
-                    780.0,
-                    80.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "s1",
-                  "maxclass": "newobj",
-                  "text": "sel 1",
-                  "patching_rect": [
-                    110.0,
-                    780.0,
-                    40.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "s2",
-                  "maxclass": "newobj",
-                  "text": "sel 1",
-                  "patching_rect": [
-                    166.0,
-                    780.0,
-                    40.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "s3",
-                  "maxclass": "newobj",
-                  "text": "sel 1",
-                  "patching_rect": [
-                    230.0,
-                    780.0,
-                    40.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "s4",
-                  "maxclass": "newobj",
-                  "text": "sel 1",
-                  "patching_rect": [
-                    290.0,
-                    780.0,
-                    40.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "s5",
-                  "maxclass": "newobj",
-                  "text": "sel 1",
-                  "patching_rect": [
-                    350.0,
-                    780.0,
-                    40.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "m_fs",
-                  "maxclass": "message",
-                  "text": "fullscreen 1",
-                  "patching_rect": [
-                    110.0,
-                    810.0,
-                    90.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "m_win",
-                  "maxclass": "message",
-                  "text": "fullscreen 0, size 1280 760, offset 80 40",
-                  "patching_rect": [
-                    166.0,
-                    810.0,
-                    280.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "m_m1",
-                  "maxclass": "message",
-                  "text": "fullscreen 0, size 1280 760, offset 40 40",
-                  "patching_rect": [
-                    230.0,
-                    840.0,
-                    280.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "m_m2",
-                  "maxclass": "message",
-                  "text": "fullscreen 0, size 1280 760, offset 1920 40",
-                  "patching_rect": [
-                    230.0,
-                    870.0,
-                    280.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "m_m3",
-                  "maxclass": "message",
-                  "text": "fullscreen 0, size 1280 760, offset 3840 40",
-                  "patching_rect": [
-                    230.0,
-                    900.0,
-                    280.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "r_frame",
-                  "maxclass": "newobj",
-                  "text": "r maxview_frame",
-                  "patching_rect": [
-                    20.0,
-                    940.0,
-                    110.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "spr",
-                  "maxclass": "newobj",
-                  "text": "sprintf read %s",
-                  "patching_rect": [
-                    140.0,
-                    940.0,
-                    110.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "metro",
-                  "maxclass": "newobj",
-                  "text": "metro 80",
-                  "patching_rect": [
-                    20.0,
-                    970.0,
-                    70.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "lm",
-                  "maxclass": "newobj",
-                  "text": "loadmess 1",
-                  "patching_rect": [
-                    100.0,
-                    970.0,
-                    80.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "mread",
-                  "maxclass": "message",
-                  "text": "read D:/Dv/Repo/Android/MaxView/MaxViewInstrument/preview_a.jpg",
-                  "patching_rect": [
-                    200.0,
-                    970.0,
-                    280.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "mfx",
-                  "maxclass": "message",
-                  "text": "fxvis $1",
-                  "patching_rect": [
-                    500.0,
-                    780.0,
-                    70.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "sfx",
-                  "maxclass": "newobj",
-                  "text": "s maxview_fxvis",
-                  "patching_rect": [
-                    580.0,
-                    780.0,
-                    110.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "vlb",
-                  "maxclass": "newobj",
-                  "text": "loadbang",
-                  "patching_rect": [
-                    500.0,
-                    810.0,
-                    70.0,
-                    22.0
-                  ]
-                }
-              },
-              {
-                "box": {
-                  "id": "vone",
-                  "maxclass": "message",
-                  "text": "1",
-                  "patching_rect": [
-                    500.0,
-                    840.0,
-                    30.0,
-                    22.0
-                  ]
-                }
-              }
-            ],
-            "lines": [
-              {
-                "patchline": {
-                  "source": [
-                    "btn_fs",
-                    0
-                  ],
-                  "destination": [
-                    "s1",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "btn_win",
-                    0
-                  ],
-                  "destination": [
-                    "s2",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "btn_m1",
-                    0
-                  ],
-                  "destination": [
-                    "s3",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "btn_m2",
-                    0
-                  ],
-                  "destination": [
-                    "s4",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "btn_m3",
-                    0
-                  ],
-                  "destination": [
-                    "s5",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "s1",
-                    0
-                  ],
-                  "destination": [
-                    "m_fs",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "s2",
-                    0
-                  ],
-                  "destination": [
-                    "m_win",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "s3",
-                    0
-                  ],
-                  "destination": [
-                    "m_m1",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "s4",
-                    0
-                  ],
-                  "destination": [
-                    "m_m2",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "s5",
-                    0
-                  ],
-                  "destination": [
-                    "m_m3",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "m_fs",
-                    0
-                  ],
-                  "destination": [
-                    "tp",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "m_win",
-                    0
-                  ],
-                  "destination": [
-                    "tp",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "m_m1",
-                    0
-                  ],
-                  "destination": [
-                    "tp",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "m_m2",
-                    0
-                  ],
-                  "destination": [
-                    "tp",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "m_m3",
-                    0
-                  ],
-                  "destination": [
-                    "tp",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "r_frame",
-                    0
-                  ],
-                  "destination": [
-                    "spr",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "spr",
-                    0
-                  ],
-                  "destination": [
-                    "pic",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "lm",
-                    0
-                  ],
-                  "destination": [
-                    "metro",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "metro",
-                    0
-                  ],
-                  "destination": [
-                    "mread",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "mread",
-                    0
-                  ],
-                  "destination": [
-                    "pic",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "tgl_fx",
-                    0
-                  ],
-                  "destination": [
-                    "mfx",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "mfx",
-                    0
-                  ],
-                  "destination": [
-                    "sfx",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "vlb",
-                    0
-                  ],
-                  "destination": [
-                    "vone",
-                    0
-                  ]
-                }
-              },
-              {
-                "patchline": {
-                  "source": [
-                    "vone",
-                    0
-                  ],
-                  "destination": [
-                    "tgl_fx",
-                    0
-                  ]
-                }
-              }
-            ]
-          },
+          "text": "pcontrol",
           "patching_rect": [
-            24.0,
+            70.0,
             530.0,
             70.0,
             22.0
@@ -1168,7 +456,7 @@
           "maxclass": "newobj",
           "text": "s maxview_frame",
           "patching_rect": [
-            200.0,
+            300.0,
             420.0,
             110.0,
             22.0
@@ -1181,7 +469,7 @@
           "maxclass": "newobj",
           "text": "r maxview_fxvis",
           "patching_rect": [
-            320.0,
+            420.0,
             420.0,
             110.0,
             22.0
@@ -1194,7 +482,7 @@
           "maxclass": "message",
           "text": "fxvis $1",
           "patching_rect": [
-            320.0,
+            420.0,
             450.0,
             70.0,
             22.0
@@ -1207,7 +495,7 @@
           "maxclass": "message",
           "text": "bind 192.168.29.2",
           "patching_rect": [
-            420.0,
+            500.0,
             380.0,
             130.0,
             22.0
@@ -1220,7 +508,7 @@
           "maxclass": "message",
           "text": "cam 192.168.29.1",
           "patching_rect": [
-            420.0,
+            500.0,
             410.0,
             130.0,
             22.0
@@ -1233,7 +521,7 @@
           "maxclass": "newobj",
           "text": "unpack",
           "patching_rect": [
-            420.0,
+            500.0,
             460.0,
             55.0,
             22.0
@@ -1246,7 +534,7 @@
           "maxclass": "newobj",
           "text": "makenote 110 450",
           "patching_rect": [
-            420.0,
+            500.0,
             490.0,
             120.0,
             22.0
@@ -1259,7 +547,7 @@
           "maxclass": "newobj",
           "text": "mtof",
           "patching_rect": [
-            560.0,
+            640.0,
             490.0,
             40.0,
             22.0
@@ -1272,7 +560,7 @@
           "maxclass": "newobj",
           "text": "cycle~",
           "patching_rect": [
-            560.0,
+            640.0,
             520.0,
             50.0,
             22.0
@@ -1285,7 +573,7 @@
           "maxclass": "newobj",
           "text": "* 0.006",
           "patching_rect": [
-            620.0,
+            700.0,
             490.0,
             60.0,
             22.0
@@ -1298,7 +586,7 @@
           "maxclass": "newobj",
           "text": "pack 0 15",
           "patching_rect": [
-            620.0,
+            700.0,
             520.0,
             70.0,
             22.0
@@ -1307,11 +595,11 @@
       },
       {
         "box": {
-          "id": "line",
+          "id": "line~",
           "maxclass": "newobj",
           "text": "line~",
           "patching_rect": [
-            620.0,
+            700.0,
             550.0,
             45.0,
             22.0
@@ -1324,7 +612,7 @@
           "maxclass": "newobj",
           "text": "*~",
           "patching_rect": [
-            560.0,
+            640.0,
             580.0,
             35.0,
             22.0
@@ -1337,7 +625,7 @@
           "maxclass": "newobj",
           "text": "*~ 0.55",
           "patching_rect": [
-            560.0,
+            640.0,
             610.0,
             60.0,
             22.0
@@ -1350,35 +638,9 @@
           "maxclass": "newobj",
           "text": "dac~",
           "patching_rect": [
-            560.0,
+            640.0,
             640.0,
             40.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "note_fmt",
-          "maxclass": "newobj",
-          "text": "sprintf MIDI %d  vel %d",
-          "patching_rect": [
-            420.0,
-            650.0,
-            150.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "note_set",
-          "maxclass": "newobj",
-          "text": "prepend set",
-          "patching_rect": [
-            420.0,
-            680.0,
-            90.0,
             22.0
           ]
         }
@@ -1389,7 +651,7 @@
           "maxclass": "newobj",
           "text": "loadbang",
           "patching_rect": [
-            700.0,
+            780.0,
             380.0,
             70.0,
             22.0
@@ -1402,7 +664,7 @@
           "maxclass": "newobj",
           "text": "delay 1200",
           "patching_rect": [
-            700.0,
+            780.0,
             410.0,
             80.0,
             22.0
@@ -1415,7 +677,7 @@
           "maxclass": "message",
           "text": "script start",
           "patching_rect": [
-            700.0,
+            780.0,
             440.0,
             90.0,
             22.0
@@ -1428,8 +690,8 @@
           "maxclass": "newobj",
           "text": "loadmess 1",
           "patching_rect": [
-            256.0,
-            130.0,
+            310.0,
+            80.0,
             80.0,
             22.0
           ]
@@ -1439,9 +701,9 @@
         "box": {
           "id": "del_vid",
           "maxclass": "newobj",
-          "text": "delay 2000",
+          "text": "delay 2500",
           "patching_rect": [
-            700.0,
+            780.0,
             480.0,
             80.0,
             22.0
@@ -1450,13 +712,13 @@
       },
       {
         "box": {
-          "id": "msg_open2",
+          "id": "msg_open_auto",
           "maxclass": "message",
-          "text": "open",
+          "text": "open D:/Dv/Repo/Android/MaxView/MaxViewInstrument/MaxView_Preview.maxpat",
           "patching_rect": [
-            700.0,
+            780.0,
             510.0,
-            45.0,
+            400.0,
             22.0
           ]
         }
@@ -1602,7 +864,7 @@
             0
           ],
           "destination": [
-            "p_video",
+            "pcontrol",
             0
           ]
         }
@@ -1627,18 +889,6 @@
           ],
           "destination": [
             "unp",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "route",
-            0
-          ],
-          "destination": [
-            "note_fmt",
             0
           ]
         }
@@ -1818,7 +1068,7 @@
             0
           ],
           "destination": [
-            "line",
+            "line~",
             0
           ]
         }
@@ -1838,7 +1088,7 @@
       {
         "patchline": {
           "source": [
-            "line",
+            "line~",
             0
           ],
           "destination": [
@@ -1904,30 +1154,6 @@
           "destination": [
             "dac",
             1
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "note_fmt",
-            0
-          ],
-          "destination": [
-            "note_set",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "note_set",
-            0
-          ],
-          "destination": [
-            "note_ui",
-            0
           ]
         }
       },
@@ -2022,7 +1248,7 @@
             0
           ],
           "destination": [
-            "msg_open2",
+            "msg_open_auto",
             0
           ]
         }
@@ -2030,11 +1256,23 @@
       {
         "patchline": {
           "source": [
-            "msg_open2",
+            "msg_open_auto",
             0
           ],
           "destination": [
-            "p_video",
+            "pcontrol",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            6
+          ],
+          "destination": [
+            "note_ui",
             0
           ]
         }

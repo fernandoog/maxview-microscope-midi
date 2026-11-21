@@ -227,8 +227,9 @@ function noteOn(pitch, vel) {
   pitch = Math.max(0, Math.min(127, pitch | 0));
   vel = Math.max(1, Math.min(127, vel | 0));
   if (activeNotes.has(pitch)) clearTimeout(activeNotes.get(pitch));
-  // pitch/vel por outlet tipado (más fiable para synth en Max)
   Max.outlet("midi", pitch, vel);
+  // solo note-on en UI (evita "vel 0")
+  Max.outlet("noteui", "set", "MIDI " + pitch + "  vel " + vel);
   const t = setTimeout(() => {
     Max.outlet("midi", pitch, 0);
     activeNotes.delete(pitch);
