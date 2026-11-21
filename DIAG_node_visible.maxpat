@@ -56,7 +56,7 @@
         "box": {
           "id": "sub",
           "maxclass": "comment",
-          "text": "arranca solo \u00b7 audio + video + MIDI",
+          "text": "MIDI \u2192 altavoces (Wavetable) \u00b7 arranque auto",
           "fontsize": 11.0,
           "textcolor": [
             0.7,
@@ -208,7 +208,7 @@
         "box": {
           "id": "foot",
           "maxclass": "comment",
-          "text": "Si el altavoz no est\u00e1 rojo, Max \u2192 Options \u2192 Audio Status \u2192 On",
+          "text": "Sonido via MIDI Wavetable + ezdac. Si silencio: Options > Audio Status > Driver = Realtek/MME",
           "fontsize": 10.0,
           "textcolor": [
             0.55,
@@ -481,7 +481,7 @@
         "box": {
           "id": "velo",
           "maxclass": "newobj",
-          "text": "* 0.007",
+          "text": "* 0.01",
           "patching_rect": [
             220.0,
             590.0,
@@ -533,7 +533,7 @@
         "box": {
           "id": "gain",
           "maxclass": "newobj",
-          "text": "*~ 0.6",
+          "text": "*~ 0.85",
           "patching_rect": [
             160.0,
             710.0,
@@ -759,6 +759,97 @@
             700.0,
             520.0,
             380.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "noteout",
+          "maxclass": "newobj",
+          "text": "noteout",
+          "patching_rect": [
+            24.0,
+            770.0,
+            55.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_port1",
+          "maxclass": "message",
+          "text": "port Microsoft GS Wavetable Synth",
+          "patching_rect": [
+            90.0,
+            770.0,
+            240.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_port2",
+          "maxclass": "message",
+          "text": "port Sintetizador GS Wavetable de Microsoft",
+          "patching_rect": [
+            90.0,
+            800.0,
+            280.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "midiinfo",
+          "maxclass": "newobj",
+          "text": "midiinfo",
+          "patching_rect": [
+            400.0,
+            770.0,
+            70.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "print_midi",
+          "maxclass": "newobj",
+          "text": "print midiports",
+          "patching_rect": [
+            480.0,
+            770.0,
+            100.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_dsp",
+          "maxclass": "message",
+          "text": "; dsp set 1",
+          "patching_rect": [
+            400.0,
+            800.0,
+            90.0,
+            22.0
+          ]
+        }
+      },
+      {
+        "box": {
+          "id": "msg_as",
+          "maxclass": "message",
+          "text": "; max showaudiostatus",
+          "patching_rect": [
+            500.0,
+            800.0,
+            150.0,
             22.0
           ]
         }
@@ -1482,6 +1573,138 @@
           "destination": [
             "dac",
             1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mn",
+            0
+          ],
+          "destination": [
+            "noteout",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "mn",
+            1
+          ],
+          "destination": [
+            "noteout",
+            1
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "bootjs",
+            2
+          ],
+          "destination": [
+            "noteout",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "msg_port1",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "msg_port2",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_port1",
+            0
+          ],
+          "destination": [
+            "noteout",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "msg_port2",
+            0
+          ],
+          "destination": [
+            "noteout",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "msg_dsp",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "msg_as",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "d1",
+            0
+          ],
+          "destination": [
+            "midiinfo",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "midiinfo",
+            0
+          ],
+          "destination": [
+            "print_midi",
+            0
           ]
         }
       }

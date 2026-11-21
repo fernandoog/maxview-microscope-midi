@@ -574,17 +574,28 @@ function start() {
     notesFired = 0;
     framesSinceStart = 0;
     status("started cam=" + camIp + " bind=" + local + " (solo movimiento)");
-    // Acorde de prueba (varias veces) para verificar audio al arrancar
+    // Acorde de prueba MIDI + beep Windows (confirma altavoces)
     const beep = () => {
       noteOn(60, 120);
       noteOn(64, 110);
       noteOn(67, 110);
     };
-    setTimeout(beep, 600);
-    setTimeout(beep, 1400);
+    setTimeout(beep, 800);
+    setTimeout(beep, 1600);
     setTimeout(() => {
-      status("AUDIO+VIDEO listos — mueve bajo el objetivo");
-    }, 1500);
+      try {
+        execFile(
+          "powershell",
+          [
+            "-NoProfile",
+            "-Command",
+            "[console]::beep(523,160);[console]::beep(659,160);[console]::beep(784,320)",
+          ],
+          { windowsHide: true, timeout: 5000 }
+        );
+      } catch (_) {}
+      status("AUDIO listo (Wavetable+beep) — mueve bajo el objetivo");
+    }, 900);
   } catch (e) {
     status("start failed: " + e.message);
     stop();
