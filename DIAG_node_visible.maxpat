@@ -638,32 +638,6 @@
             22.0
           ]
         }
-      },
-      {
-        "box": {
-          "id": "audio_status",
-          "maxclass": "newobj",
-          "text": "adstatus",
-          "patching_rect": [
-            280.0,
-            80.0,
-            70.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "msg_audio_on",
-          "maxclass": "message",
-          "text": "set 1",
-          "patching_rect": [
-            280.0,
-            110.0,
-            50.0,
-            22.0
-          ]
-        }
       }
     ],
     "lines": [
