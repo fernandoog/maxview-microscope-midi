@@ -1518,20 +1518,6 @@
           ],
           "presentation": 0
         }
-      },
-      {
-        "box": {
-          "id": "status_prepend",
-          "maxclass": "newobj",
-          "text": "prepend set",
-          "patching_rect": [
-            400.0,
-            420.0,
-            90.0,
-            22.0
-          ],
-          "presentation": 0
-        }
       }
     ],
     "lines": [
@@ -2356,18 +2342,6 @@
           "source": [
             "route",
             1
-          ],
-          "destination": [
-            "status_prepend",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "status_prepend",
-            0
           ],
           "destination": [
             "status",
