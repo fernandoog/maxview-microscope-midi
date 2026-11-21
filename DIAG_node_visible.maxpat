@@ -393,32 +393,6 @@
       },
       {
         "box": {
-          "id": "stat_sym",
-          "maxclass": "newobj",
-          "text": "tosymbol",
-          "patching_rect": [
-            300.0,
-            260.0,
-            70.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
-          "id": "stat_set",
-          "maxclass": "newobj",
-          "text": "prepend set",
-          "patching_rect": [
-            300.0,
-            290.0,
-            90.0,
-            22.0
-          ]
-        }
-      },
-      {
-        "box": {
           "id": "status_ui",
           "maxclass": "textedit",
           "fontsize": 13.0,
@@ -969,42 +943,6 @@
       {
         "patchline": {
           "source": [
-            "route",
-            1
-          ],
-          "destination": [
-            "stat_sym",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "stat_sym",
-            0
-          ],
-          "destination": [
-            "stat_set",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
-            "stat_set",
-            0
-          ],
-          "destination": [
-            "status_ui",
-            0
-          ]
-        }
-      },
-      {
-        "patchline": {
-          "source": [
             "note_fmt",
             0
           ],
@@ -1238,6 +1176,18 @@
           ],
           "destination": [
             "msg_cam",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "route",
+            1
+          ],
+          "destination": [
+            "status_ui",
             0
           ]
         }

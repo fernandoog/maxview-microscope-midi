@@ -105,8 +105,8 @@ function packageRoot() {
 function status(msg) {
   fileLog(msg);
   Max.post("[MaxView] " + msg);
-  // Un solo símbolo para que route/textedit no partan el mensaje
-  Max.outlet("status", String(msg).replace(/\s+/g, " "));
+  // textedit exige: set <texto>  (route status → queda "set …")
+  Max.outlet("status", "set", String(msg).replace(/\s+/g, " "));
 }
 
 function tryLoadSharp() {
